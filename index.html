@@ -19,9 +19,8 @@
   <a href="https://www.youtube.com/channel/UCJHJeYZU2GazAz_uD_q7CPg">The Quantum General <i class="fab fa-youtube"></i></a>
   <a href="https://github.com/TheQuantumGeneral">Github <i class="fab fa-github"></i></a>
   <a href="https://www.instagram.com/shrugganaught/">Fitness <i class="fab fa-instagram"></i></a>
-  <a href="#">Finance</a>
-  <a href="#">Programming</a>
   <a href="https://www.instagram.com/harrisfauntleroy/">Photography <i class="fab fa-instagram"></i></a>
+  <a href="http://harrisfauntleroy.com/">Projects</a>
 </div>
 
 <div class="row">
@@ -63,6 +62,24 @@
 <div class="footer">
   <h2>Copyright © 2020 Harris Fauntleroy All rights reserved.</h2>
 </div>
+
+<script>
+/* When the user clicks on the button, 
+toggle between hiding and showing the dropdown content */
+function myFunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(e) {
+  if (!e.target.matches('.dropbtn')) {
+  var myDropdown = document.getElementById("myDropdown");
+    if (myDropdown.classList.contains('show')) {
+      myDropdown.classList.remove('show');
+    }
+  }
+}
+</script>
 
 </body>
 </html>
