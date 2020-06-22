@@ -16,10 +16,10 @@ for (i = 0; i < dropdown.length; i++) {
 
 /* Open */
 function openNav() {
-  document.getElementById("myNav").style.display = "block";
+  document.getElementById("nav").style.display = "block";
 }
 
 /* Close */
 function closeNav() {
-  document.getElementById("myNav").style.display = "none";
+  document.getElementById("nav").style.display = "none";
 }
