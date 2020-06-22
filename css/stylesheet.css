@@ -56,31 +56,35 @@ body {
   position: relative;
   top: 25%; /* 25% from the top */
   width: 100%; /* 100% width */
-  text-align: center; /* Centered text/links */
+  text-align: left; /* Centered text/links */
   margin-top: 30px; /* 30px top margin to avoid conflict with the close button on smaller screens */
 }
 
 /* The navigation links inside the overlay */
-.overlay a {
+.overlay a, .dropdown-btn {
   padding: 8px;
   text-decoration: none;
   font-size: 36px;
   color: #818181;
   display: block; /* Display block instead of inline */
   transition: 0.3s; /* Transition effects on hover (color) */
+  border: none;
+  background: none;
+  cursor: pointer;
+  outline: none;
 }
 
 /* When you mouse over the navigation links, change their color */
-.overlay a:hover, .overlay a:focus {
+.overlay a:hover, .overlay a:focus, .dropdown-btn:hover {
   color: #f1f1f1;
 }
 
 /* Position the close button (top right corner) */
 .overlay .closebtn {
-  position: absolute;
-  top: 20px;
-  right: 45px;
-  font-size: 60px;
+	position: absolute;
+	right:0;
+	top: 0;
+	padding-right: 0.5em;
 }
 
 /* When the height of the screen is less than 450 pixels, change the font-size of the links and position the close button again, so they don't overlap */
@@ -91,6 +95,12 @@ body {
     top: 15px;
     right: 35px;
   }
+}
+
+.dropdown-container {
+  display: none;
+  background-color: #262626;
+  padding-left: 8px;
 }
 
 #main {
