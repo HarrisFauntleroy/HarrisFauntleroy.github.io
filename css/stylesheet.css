@@ -20,12 +20,16 @@ body {
 }
 
 #nav {
-	overflow: hidden;
+	width: 100%;
+	overflow: auto;
     text-align: center;
 }
 #nav a {
 	text-decoration: none;
 	color: black;	
+	font-size: 17px;
+	padding: 12px;
+	width: 16.66%;
 }
 
 #nav a:hover {
@@ -34,7 +38,7 @@ body {
 }
 
 #nav a.active {
-  text-decoration: underline;
+	background-color: white;
 }
 
 #nav .icon {
