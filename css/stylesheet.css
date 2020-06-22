@@ -1,5 +1,5 @@
 body {
-	background-color: #f1f1f1;
+	background-color: #cccccc;
 	color: black;
 	font-family: Arial;
     width: auto;
@@ -8,7 +8,9 @@ body {
 #container {
 	margin-left: auto;
 	margin-right: auto;
-    min-height: calc(100vh - footer-height)
+    min-height: calc(100% - footer-height);
+    border: 1px solid black;
+    padding: 5px;
 }
 
 #header {
@@ -27,8 +29,8 @@ body {
 #nav a {
 	text-decoration: none;
 	color: black;	
-	font-size: 17px;
-	padding: 12px;
+	font-size: 16px;
+	padding: 8px;
 	width: 16.66%;
 }
 
@@ -38,7 +40,7 @@ body {
 }
 
 #nav a.active {
-	background-color: white;
+	text-decoration: underline;
 }
 
 #nav .icon {
