@@ -2,6 +2,8 @@ body {
 	background-color: #f1f1f1;
 	color: black;
 	font-family: Arial;
+	border-top: 1px solid #111;
+	border-bottom: 1px solid #111;
 	border-left: 1px solid #111;
 	border-right: 1px solid #111;
 	min-height: 100vh;
