@@ -14,12 +14,12 @@ for (i = 0; i < dropdown.length; i++) {
   });
 }
 
-/* Open */
+/* Open when someone clicks on the span element */
 function openNav() {
-  document.getElementById("nav").style.display = "block";
+  document.getElementById("nav").style.width = "100%";
 }
 
-/* Close */
+/* Close when someone clicks on the "x" symbol inside the overlay */
 function closeNav() {
-  document.getElementById("nav").style.display = "none";
+  document.getElementById("nav").style.width = "0%";
 }
