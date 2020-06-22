@@ -6,34 +6,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>H Fauntleroy</title>
 	<link rel="icon" type="image/png" href="/images/favicon.png" sizes="32x32" />
-	<link rel="stylesheet" type="text/css" href="/css/stylesheet.css">
+	<link rel="stylesheet" type="text/css" href="stylesheet.css">
 	<script src="https://kit.fontawesome.com/d48dc5e455.js" crossorigin="anonymous"></script>
-	<script src="/js/navbar.js"></script>
+	<script src="navbar.js"></script>
 </head>
 
 <body>
+
+	<span onclick="openNav()"><i class="fas fa-hamburger fa-lg"></i></span>
+
 	<div id="container">
 		<div id="header">
-		<h1> Harris Fauntleroy</h1>
-		<hr>
+			<hr>
+			<h2> Harris Fauntleroy</h2>
+			<hr>
 		</div>
 		
-		<div id="content">
-			<div class="nav" id="nav">
-				<a class="active" href="#home">Home</a>
-				<a href="resume.html">About</a>
-				<a href="https://github.com/TheQuantumGeneral">Github <i class="fab fa-github"></i></a>
-				<a href="https://www.instagram.com/shrugganaught/">Fitness <i class="fab fa-instagram"></i></a>
-				<a href="https://www.instagram.com/harrisfauntleroy/">Photography <i class="fab fa-instagram"></i></a>
-				<a href="#">Projects <i class="fas fa-bolt"></i></a>
-				<a href="javascript:void(0);" class="icon" onclick="navbar()"><i class="fas fa-hamburger"></i></a>
-			</div>	
+	<div id="content">
+		<div id="nav" class="overlay">
+			<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+			<div class="overlay-content">
+			<a class="active" href="harrisfauntleroy.com">Home</a>
+			<a href="resume.html">About <i class="fa fa-file-text fa-fw"></i></a>
+			<a href="https://github.com/TheQuantumGeneral">Github <i class="fab fa-github fa-fw"></i></a>
+			<a href="https://www.instagram.com/shrugganaught/">Fitness <i class="fab fa-instagram fa-fw"></i></a>
+			<a href="https://www.instagram.com/harrisfauntleroy/">Photography <i class="fab fa-instagram fa-fw"></i></a>
+			<a href="#">Projects <i class="fa fa-cogs fa-fw"></i></a>
+		</div>
+	</div>
 			
-		<div id="main">
-			<h3>A personal blog.</h3>
-			<p>Little area for me to document things i'm working on or am interested in.</p>
-		</div>
-		</div>
+	<div id="main">
+		<h3>A personal blog. <i class="fa fa-cog fa-spin"></i></h3>
+		<p>Little area for me to document things i'm working on or am interested in.</p>
+	</div>
+	</div>
 	</div>
 
 	<div id="footer">
