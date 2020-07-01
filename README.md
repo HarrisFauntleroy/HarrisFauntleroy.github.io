@@ -1,1 +1,0 @@
-# TheQuantumGeneral.github.io
