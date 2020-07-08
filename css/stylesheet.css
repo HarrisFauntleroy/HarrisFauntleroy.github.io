@@ -119,16 +119,16 @@ nav .active {
   display: block;
 }
 
-@keyframes dropIn {
+/* @keyframes dropIn {
   100% { transform: translateX(0%); }
-}
+} */
 
 /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
 .show {
   display: block;
   font-style: italic;
-  transform: translateX(-100%);
-  animation: dropIn 0.4s forwards;
+/*transform: translateX(-100%);
+  animation: dropIn 0.4s forwards;*/
 }
 
 .content {
