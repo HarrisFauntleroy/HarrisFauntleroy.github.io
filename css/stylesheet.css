@@ -21,9 +21,8 @@ html, body {
 
 header {
   grid-area: header;
-  background-color: #212121;
-  border-radius: 32px;
-  padding: inherit;
+  /*ackground-color: #212121;
+  border-radius: 32px;*/
   color: rgba(189, 189, 189, 0.87);
   text-align: center;
   margin-top: -1em;
@@ -137,7 +136,7 @@ nav .active {
   background-color: #212121;
   border-radius: 32px;
   padding: 1em;
-  text-align: center;
+  text-align: left;
 }
 
 footer {
