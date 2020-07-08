@@ -14,7 +14,7 @@ header, nav, .sidebar-left, .content {
   background-color: #212121;
   color: #BDBDBD;
   border-radius: 32px;
-  transition: color 0.5s;
+  transition: color 1s;
   padding: 1em;
 }
 
@@ -57,6 +57,7 @@ nav a {
   list-style-type: none;
   text-decoration: none;
   color: #BDBDBD;
+  transition: color 0.5s;
   padding: 1em;
 }
 
@@ -91,6 +92,7 @@ nav .active {
   list-style-type: none;
   text-decoration: none;
   color: #BDBDBD;
+  transition: color 0.5s;
 }
 
 .sidebar-left a:hover, .dropdown-content a:hover {
@@ -162,4 +164,42 @@ footer a:hover {
                        "content"
                        "footer";
  }
+}
+
+/* CONTACT FORM */
+/* Style inputs with type="text", select elements and textareas */
+input[type=text], select, textarea {
+  width: 100%; /* Full width */
+  padding: 12px; /* Some padding */ 
+  border: 1px solid #ccc; /* Gray border */
+  border-radius: 4px; /* Rounded borders */
+  box-sizing: border-box; /* Make sure that padding and width stays in place */
+  margin-top: 6px; /* Add a top margin */
+  margin-bottom: 16px; /* Bottom margin */
+  resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
+}
+
+/* Style the submit button with a specific background color etc */
+input[type=submit] {
+  background-color: #BDBDBD;
+  color: black;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+/* When moving the mouse over the submit button, add a darker green color */
+input[type=submit]:hover {
+  background-color: #302f2f;
+  color: #BDBDBD;
+}
+
+/* Add a background color and some padding around the form */
+.container {
+  background-color: #212121;
+  color: #BDBDBD;
+  border-radius: 32px;
+  padding: 20px;
 }
