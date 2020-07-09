@@ -85,6 +85,7 @@ nav .active {
   grid-area: side;
   background-color: #212121;
   border-radius: 32px;
+  text-align: center;
   padding: 1em;
 }
 
@@ -107,18 +108,22 @@ nav .active {
   color: white;
 }
 
-/* Dropdown Button */
-.dropbtn {}
+/* Dropdown Button
+.dropbtn {}*/
 
-/* Dropdown button on hover & focus */
-.dropbtn:hover, .dropbtn:focus {}
+/* Dropdown button on hover & focus
+.dropbtn:hover, .dropbtn:focus {}*/
 
-/* The container <div> - needed to position the dropdown content */
-.dropdown {}
+/* The container <div> - needed to position the dropdown content 
+.dropdown {}*/
 
 /* Dropdown Content (Hidden by Default) */
 .dropdown-content {
   display: none;
+  background-color: #313131;
+  border-radius: 32px;
+  text-align: center;
+  padding: 1em;
 }
 
 /* Links inside the dropdown */
@@ -133,7 +138,10 @@ nav .active {
 /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
 .show {
   display: block;
-  font-style: italic;
+  background-color: #313131;
+  border-radius: 32px;
+  text-align: center;
+  padding: 1em;
 /*transform: translateX(-100%);
   animation: dropIn 0.4s forwards;*/
 }
@@ -180,7 +188,6 @@ footer a:hover {
                        "content"
                        "footer";
  }
-}
 
 /* CONTACT FORM */
 /* Style inputs with type="text", select elements and textareas */
