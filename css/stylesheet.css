@@ -13,7 +13,19 @@ html, body {
   /*background-size: auto, auto;*/
   min-height: calc(100vh - 100px);
   margin: auto;
+  line-height: auto;
   cursor: pointer;
+}
+
+h2 {
+  padding: 0px;
+  margin: 0px;
+}
+
+nav, .sidebar-left, .content {
+  background-color: #212121;
+  color: rgba(189, 189, 189, 0.87);
+  border-radius: 32px;
 }
 
 .avatar {
@@ -38,9 +50,6 @@ header {
 
 nav {
   grid-area: navbar;
-  background-color: #212121;
-  border-radius: 32px;
-  padding: inherit;
   text-align: center;
 }
 
@@ -83,14 +92,14 @@ nav .active {
 
 .sidebar-left {
   grid-area: side;
-  background-color: #212121;
-  border-radius: 32px;
   text-align: center;
   padding: 1em;
 }
 
 .sidebar-left ul {
   display: inline;
+  padding: 0px;
+  margin: 0px;
 }
 
 .sidebar-left li {
@@ -124,6 +133,8 @@ nav .active {
   border-radius: 32px;
   text-align: center;
   padding: 1em;
+  transform: translateX(-100%);
+  animation: dropIn 0.4s forwards;
 }
 
 /* Links inside the dropdown */
@@ -131,26 +142,12 @@ nav .active {
   display: block;
 }
 
-/* @keyframes dropIn {
+@keyframes dropIn {
   100% { transform: translateX(0%); }
-} */
-
-/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
-.show {
-  display: block;
-  background-color: #313131;
-  border-radius: 32px;
-  text-align: center;
-  padding: 1em;
-/*transform: translateX(-100%);
-  animation: dropIn 0.4s forwards;*/
-}
+} 
 
 .content {
   grid-area: body;
-  color: rgba(189, 189, 189, 0.87);
-  background-color: #212121;
-  border-radius: 32px;
   padding: 1em;
   text-align: left;
 }
