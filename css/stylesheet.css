@@ -86,13 +86,6 @@ nav a {
   padding: 1em;
 }
 
-.subgrid {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  grid-template-areas: "side body";
-  grid-gap: 0.5rem;
-}
-
 .sidebar-left {
   grid-area: side;
   text-align: center;
@@ -171,6 +164,28 @@ footer a {
                        "footer";
  }
 
+ .subgrid {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-gap: 0.5rem;
+  grid-template-areas: "side body";
+}
+
+.subgrid2 {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-template-rows: auto auto auto auto 1fr 1fr 1fr;
+  grid-gap: 0.5rem;
+  grid-template-areas: "form form form"
+                       "form1 form1 form1"
+                       "form2 form2 form2"
+                       "form3 form3 form3"
+                       "plot plot plot"
+                       "plot plot plot"
+                       "plot plot plot";
+  grid-gap: 0.5rem;
+}
+
 /* CONTACT FORM */
 /* Style inputs with type="text", select elements and textareas */
 input[type=text], select, textarea {
@@ -207,4 +222,266 @@ input[type=submit]:hover {
   color: #BDBDBD;
   border-radius: 32px;
   padding: 20px;
+}
+
+/* hormone-plot */
+
+.small-12 {
+  position: relative;
+  width: auto;
+}
+
+/* line 190, ../bower_components/foundation/scss/foundation/components/_grid.scss */
+.row {
+width: 100%;
+margin-left: auto;
+margin-right: auto;
+margin-top: 0;
+margin-bottom: 0;
+max-width: 62.5rem;
+*zoom: 1;
+}
+/* line 165, ../bower_components/foundation/scss/foundation/components/_global.scss */
+.row:before, .row:after {
+content: " ";
+display: table;
+}
+/* line 166, ../bower_components/foundation/scss/foundation/components/_global.scss */
+.row:after {
+clear: both;
+}
+/* line 195, ../bower_components/foundation/scss/foundation/components/_grid.scss */
+.row.collapse > .column,
+.row.collapse > .columns {
+position: relative;
+padding-left: 0;
+padding-right: 0;
+float: left;
+}
+/* line 197, ../bower_components/foundation/scss/foundation/components/_grid.scss */
+.row.collapse .row {
+margin-left: 0;
+margin-right: 0;
+}
+/* line 200, ../bower_components/foundation/scss/foundation/components/_grid.scss */
+.row .row {
+width: auto;
+margin-left: -0.9375rem;
+margin-right: -0.9375rem;
+margin-top: 0;
+margin-bottom: 0;
+max-width: none;
+*zoom: 1;
+}
+/* line 165, ../bower_components/foundation/scss/foundation/components/_global.scss */
+.row .row:before, .row .row:after {
+content: " ";
+display: table;
+}
+/* line 166, ../bower_components/foundation/scss/foundation/components/_global.scss */
+.row .row:after {
+clear: both;
+}
+/* line 201, ../bower_components/foundation/scss/foundation/components/_grid.scss */
+.row .row.collapse {
+width: auto;
+margin: 0;
+max-width: none;
+*zoom: 1;
+}
+/* line 165, ../bower_components/foundation/scss/foundation/components/_global.scss */
+.row .row.collapse:before, .row .row.collapse:after {
+content: " ";
+display: table;
+}
+/* line 166, ../bower_components/foundation/scss/foundation/components/_global.scss */
+.row .row.collapse:after {
+clear: both;
+}
+
+/* line 7, ../scss/app.scss */
+.single-compound-div {
+margin-bottom: 1.5rem;
+}
+
+/* line 11, ../scss/app.scss */
+#cycle-plot {
+height: 18.75rem;
+z-index: 90;
+margin-bottom: 1rem;
+}
+
+/* line 17, ../scss/app.scss */
+#flot-label {
+margin-top: 0.37rem;
+}
+
+/* line 21, ../scss/app.scss */
+#cycle-header {
+text-align: center;
+margin-top: 1rem;
+}
+
+/* line 26, ../scss/app.scss */
+.chart-tooltip {
+margin-top: -3.0rem;
+margin-left: 0.7rem;
+padding: 0.4rem 0.7rem;
+color: #ddd;
+background: #222;
+border-width: 1px;
+border-style: solid;
+border-color: #444;
+-webkit-border-radius: 0.3125rem;
+border-radius: 0.3125rem;
+}
+
+/* line 38, ../scss/app.scss */
+.xAxis .tickLabel {
+margin-top: 0.3125rem;
+}
+
+#about-div { 
+justify-content: center;
+align-items: center;
+outline: 1px dashed #A40707;
+outline-offset: 0px;
+padding: 10px;
+margin-bottom: 20px;
+}
+
+/* line 365, ../bower_components/foundation/scss/foundation/components/_global.scss */
+.hide {
+display: none;
+}
+
+* Standard Forms */
+/* line 300, ../bower_components/foundation/scss/foundation/components/_forms.scss */
+form {
+  margin: 0 0 1rem;
+}
+
+/* Using forms within rows, we need to set some defaults */
+/* line 75, ../bower_components/foundation/scss/foundation/components/_forms.scss */
+form .row .row {
+  margin: 0 -0.5rem;
+}
+/* line 78, ../bower_components/foundation/scss/foundation/components/_forms.scss */
+form .row .row .column,
+form .row .row .columns {
+  padding: 0 0.5rem;
+}
+/* line 81, ../bower_components/foundation/scss/foundation/components/_forms.scss */
+form .row .row.collapse {
+  margin: 0;
+}
+/* line 84, ../bower_components/foundation/scss/foundation/components/_forms.scss */
+form .row .row.collapse .column,
+form .row .row.collapse .columns {
+  padding: 0;
+}
+/* line 85, ../bower_components/foundation/scss/foundation/components/_forms.scss */
+form .row .row.collapse input {
+  -moz-border-radius-bottomright: 0;
+  -moz-border-radius-topright: 0;
+  -webkit-border-bottom-right-radius: 0;
+  -webkit-border-top-right-radius: 0;
+}
+/* line 97, ../bower_components/foundation/scss/foundation/components/_forms.scss */
+form .row input.column,
+form .row input.columns,
+form .row textarea.column,
+form .row textarea.columns {
+  padding-left: 0.5rem;
+}
+
+/* Label Styles */
+label {
+  font-size: 0.875rem;
+  color: rgba(189, 189, 189, 0.87);
+  cursor: pointer;
+  display: block;
+}
+
+label.right {
+  float: none;
+  text-align: right;
+}
+
+label.inline {
+  margin: 0 0 1rem 0;
+  padding: 0.625rem 0;
+}
+
+label small {
+  text-transform: capitalize;
+  color: rgba(189, 189, 189, 0.87);
+}
+
+.about-div {
+  color: rgba(189, 189, 189, 0.87);
+}
+
+/* line 317, ../bower_components/foundation/scss/foundation/components/_global.scss */
+*,
+*:before,
+*:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+  /* line 161, ../bower_components/foundation/scss/foundation/components/_grid.scss */
+  .small-4 {
+    position: relative;
+    width: 33.33333%;
+  }
+
+  /* line 161, ../bower_components/foundation/scss/foundation/components/_grid.scss */
+  .small-8 {
+    position: relative;
+    width: 66.66667%;
+  }
+
+  /* line 161, ../bower_components/foundation/scss/foundation/components/_grid.scss */
+  .small-12 {
+    position: relative;
+    width: auto;
+  }
+
+    /* line 157, ../bower_components/foundation/scss/foundation/components/_grid.scss */
+    .column,
+    .columns {
+      position: relative;
+      padding-left: 0.9375rem;
+      padding-right: 0.9375rem;
+      float: left;
+    }
+
+    .hide {
+      display: none;
+    }
+
+select, .dose{
+  width: 1fr;
+}
+
+.form {
+  grid-area: form form form;
+}
+
+.form1 {
+  grid-area: form1 form1 form1;
+}
+
+.form2 {
+  grid-area: form2 form2 form2;
+}
+
+.form3 {
+  grid-area: form3 form3 form3;
+}
+
+.form4 {
+  grid-area: "form 4 form4 form4";
 }

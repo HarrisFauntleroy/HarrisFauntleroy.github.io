@@ -37,7 +37,7 @@ $("#plot-button").click(function () {
           },
           yAxis: {
               title: {
-                  text: 'Miligrams'
+                  text: 'Milligrams'
               }
           },
           series: [
@@ -70,7 +70,7 @@ $("#plot-button").click(function () {
       var half;
       var efect;
       if(compound=="testosterone"){
-          if(compoundform=="suspesion"){
+          if(compoundform=="suspension"){
               half=0.5;
               efect=1;
           }else if(compoundform=="propionate"){
@@ -96,7 +96,7 @@ $("#plot-button").click(function () {
              efect=0.61;
           }
       }else if(compound=="trenbolone"){
-         if(compoundform=="suspesion"){
+         if(compoundform=="suspension"){
               half=0.5;
               efect=1;
           }else if(compoundform=="enanthate"){
@@ -1221,11 +1221,11 @@ $("#plot-button").click(function () {
               if ($(this).val() == '-') {
               }
               else if ($(this).val() == 'testosterone') {
-                  compoundDiv.html('<select class="compound-form"><option value="suspesion">Suspension</option><option value="propionate">Propionate</option><option value="phenylpropionate">Phenylpropionate</option><option value="isocaproate">Isocaproate</option><option value="enanthate">Enanthate</option><option value="cypionate">Cypionate</option><option value="decanoate">Decanoate</option><option value="undecanoate">Undecanoate</option></select>');
+                  compoundDiv.html('<select class="compound-form"><option value="suspension">Suspension</option><option value="propionate">Propionate</option><option value="phenylpropionate">Phenylpropionate</option><option value="isocaproate">Isocaproate</option><option value="enanthate">Enanthate</option><option value="cypionate">Cypionate</option><option value="decanoate">Decanoate</option><option value="undecanoate">Undecanoate</option></select>');
                   compoundDiv.show();
               }
               else if ($(this).val() == 'trenbolone') {
-                  compoundDiv.html('<select class="compound-form"><option value="suspesion">Suspension</option><option value="acetate">Acetate</option><option value="enanthate">Enanthate</option></select>');
+                  compoundDiv.html('<select class="compound-form"><option value="suspension">Suspension</option><option value="acetate">Acetate</option><option value="enanthate">Enanthate</option></select>');
                   compoundDiv.show();
               }
               else if ($(this).val() == 'masteron') {
@@ -1308,85 +1308,3 @@ $("#plot-button").click(function () {
           $('.single-compound-div:last').find('.dose').val('');
           $.handleCompoundChange();
       });
-      
-      // $('#plot-button').click(function() {
-      //     var params = {
-      //         'l': $('#length').val(),
-      //         't': $('#timeofday').val(),
-      //         'n': $('.single-compound-div').length
-      //     }
-    
-      //     $(".single-compound-div").each(function(index) {
-      //         params['c'+index+'_d'] = $(this).find('.dose').val();
-      //         params['c'+index+'_c'] = $(this).find('.compound').val();
-      //         params['c'+index+'_f'] = $(this).find('.compound-form').val();
-      //         params['c'+index+'_s'] = $(this).find('.schedule').val();
-      //         params['c'+index+'_fr'] = $(this).find('.from').val();
-      //         params['c'+index+'_to'] = $(this).find('.to').val();
-      //     });
-    
-      //     $('#cycle-header').show();
-      //     $('#cycle-container').show();
-      //     $('#share-div').show();
-    
-      //     $('#share-url').val('shared41d.html?' + $.param(params));
-    
-      //     $.getJSON(
-      //         'cgi-bin/generate_plot.html',
-      //         params,
-    
-      //         function(json) {
-      //             var placeholder = $('#cycle-plot');
-      //             var data = [];
-      //             for (var i = 0; i < json.compound_data.length; i++) {
-      //                 data.push({data: json.compound_data[i].levels, label: json.compound_data[i].display_name});
-      //             }
-      //             var options = {
-      //                 series: { lines: { show: true, fill: true }, points: { show: false } },
-      //                 grid: { hoverable: true, clickable: true, borderWidth: 1, borderColor: "#cccccc"},
-      //                 legend: { container: $('#flot-label') },
-      //                 xaxis: { ticks: json.ticks } // json.ticks
-      //             };
-    
-      //             $.plot(placeholder, data, options);
-      //         }
-      //     );
-    
-    
-      //     function showTooltip(x, y, contents) {
-      //         $('<div id="tooltip" class="chart-tooltip">' + contents + '</div>').css( {
-      //             'position': 'absolute',
-      //             'display': 'none',
-      //             'top': y + 10,
-      //             'left': x - 5,
-      //             'z-index': '9999',
-      //             'color': '#fff',
-      //             'font-size': '11px',
-      //             'opacity': 0.9
-      //         }).appendTo("body").fadeIn(200);
-      //     }
-    
-      //     var previousPoint = null;
-    
-      //     $("#cycle-plot").bind("plothover", function (event, pos, item) {
-      //         $("#x").text(pos.x.toFixed(2));
-      //         $("#y").text(pos.y.toFixed(2));
-    
-      //         if ($("#cycle-plot").length > 0) {
-      //             if (item) {
-      //                 if (previousPoint != item.dataIndex) {
-      //                     previousPoint = item.dataIndex;
-    
-      //                     $("#tooltip").remove();
-      //                     var y = item.datapoint[1].toFixed(1);
-    
-      //                     showTooltip(item.pageX, item.pageY, item.series.label + ': ' + y + ' mg/day');
-      //                 }
-      //             }
-      //             else {
-      //                 $("#tooltip").remove();
-      //                 previousPoint = null;            
-      //             }
-      //         }
-      //     });
-      // });
