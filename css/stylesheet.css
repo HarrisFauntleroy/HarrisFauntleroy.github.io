@@ -196,7 +196,7 @@ input[type=submit]:hover {
 }
 
 /* Add a background color and some padding around the form */
-.container {
+.contactform {
   display: grid;
   grid-template-columns: auto auto auto;
   grid-template-areas: "first last country"
