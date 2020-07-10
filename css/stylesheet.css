@@ -58,13 +58,6 @@ body {
   color: var(--primary);
 }
 
-/* Links */
-.content a { text-decoration: none; color: rgba(189, 189, 189, 0.87);}
-.content a:visited { text-decoration: none; color:white;}
-.content a:hover { text-decoration: none; color:white; }
-.content a:focus { text-decoration: none; color:white; }
-.content a:hover, a:active { text-decoration: none; color:white }
-
 h1, h2, h3 {
   padding: 0px;
   margin: 0px;
@@ -277,6 +270,13 @@ input:checked + .slider:before {
   background-color: var(--surface2);
   color: var(--element3);
 }
+
+/* Links on links page*/
+.links-content a { text-decoration: none; color: var(--element3);}
+.links-content a:visited { text-decoration: none; color:var(--tertiary);}
+.links-content a:hover { text-decoration: none; color:var(--tertiary); }
+.links-content a:focus { text-decoration: none; color:var(--tertiary); }
+.links-content a:hover, a:active { text-decoration: none; color:var(--tertiary) }
 
 /* -------------------------------------------------------------------------------------- */
 /* -------------------------------------------------------------------------------------- */
