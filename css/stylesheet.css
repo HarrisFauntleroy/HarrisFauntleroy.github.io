@@ -522,10 +522,6 @@ select, .dose{
   width: 1fr;
 }
 
-.cycle-container {
- max-width: inherit;
-}
-
 /* CSS GRIDDING THE TOOL */
 .form {
   grid-area: form form form;
@@ -545,4 +541,15 @@ select, .dose{
 
 .form4 {
   grid-area: plot;
+}
+
+.steroid-calc-content {
+  grid-area: body;
+  padding: 1em;
+  text-align: left;
+  line-height: auto;
+  box-sizing: border-box;
+  background-color: #212121;
+  color: rgba(189, 189, 189, 0.87);
+  border-radius: 1em;
 }
