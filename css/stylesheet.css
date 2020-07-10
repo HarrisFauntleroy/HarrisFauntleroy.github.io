@@ -271,6 +271,7 @@ footer a {
  .subgrid {
   display: grid;
   grid-template-columns: auto 1fr;
+  grid-template-rows: auto 1fr;
   grid-gap: 0.5rem;
   grid-template-areas: "side body";
 }
@@ -292,7 +293,7 @@ footer a {
    /* Show the nav when user clicks navbar */
  .downlist2 {
   display: block;
-}
+  }
   /* Show mobile nav menu */
   .mobile-nav-btn{
     display: block;
