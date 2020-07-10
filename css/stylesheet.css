@@ -256,6 +256,11 @@ nav a {
   border-radius: 1em;
   padding: 1em;
 }
+
+.dropdown-content a {
+  padding-left: 20px;
+}
+
  /* Show the nested list when the user clicks on the caret/arrow (with JavaScript) */
  .downlist {
   display: block;
