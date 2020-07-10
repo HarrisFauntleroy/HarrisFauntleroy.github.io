@@ -285,7 +285,7 @@ footer a {
    "side"
    "body";
   }
-  /* Collapse Navigation */
+  /* Collapse nav by default */
   .mobile-nav-content {
     display: none;
   }
@@ -293,11 +293,11 @@ footer a {
  .downlist2 {
   display: block;
 }
-  /* Collapse Navigation */
+  /* Show mobile nav menu */
   .mobile-nav-btn{
     display: block;
   }
-  /* Collapse Navigation */
+  /* Collapse desktop nav title */
   .desktop-nav-title {
     display: none;
   }
