@@ -66,6 +66,68 @@ h1, h2, h3 {
 /* -------------------------------------------------------------------------------------- */
 /* -------------------------------------------------------------------------------------- */
 
+/* DARK MODE TOGGLE*/
+.theme-switch-wrapper {
+  display: grid;
+  grid-area: avatar;
+  position:absolute; top:0; right:0;
+  align-items: right;
+  padding-top: 0.2em;
+  padding-right: 0.2em;
+
+}
+.theme-switch {
+  display: inline-block;
+  height: 17px;
+  position: relative;
+  width: 30px;
+}
+
+.theme-switch input {
+  display:none;
+}
+
+.slider {
+  background-color: var(--element1);
+  bottom: 0;
+  cursor: pointer;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: .4s;
+}
+
+.slider:before {
+  background-color: var(--surface1);
+  bottom: 2px;
+  content: "";
+  height: 13px;
+  left: 2px;
+  position: absolute;
+  transition: .4s;
+  width: 13px;
+}
+
+input:checked + .slider {
+  background-color: var(--secondary);
+}
+
+input:checked + .slider:before {
+  transform: translateX(13px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+/* -------------------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------------------- */
+
 /* AVATAR */
 .avatar {
   grid-area: avatar;
@@ -167,65 +229,6 @@ nav a {
  /* Show navigation content by default */
 .side-nav-content {
   display: block;
-}
-
-/* ------------------------------------------ */
-
-/* DARK MODE TOGGLE*/
-.theme-switch-wrapper {
-  display: grid;
-  grid-area: avatar;
-  position:absolute; top:0; right:0;
-  align-items: right;
-
-}
-.theme-switch {
-  display: inline-block;
-  height: 17px;
-  position: relative;
-  width: 30px;
-}
-
-.theme-switch input {
-  display:none;
-}
-
-.slider {
-  background-color: var(--element1);
-  bottom: 0;
-  cursor: pointer;
-  left: 0;
-  position: absolute;
-  right: 0;
-  top: 0;
-  transition: .4s;
-}
-
-.slider:before {
-  background-color: var(--surface1);
-  bottom: 2px;
-  content: "";
-  height: 13px;
-  left: 2px;
-  position: absolute;
-  transition: .4s;
-  width: 13px;
-}
-
-input:checked + .slider {
-  background-color: var(--secondary);
-}
-
-input:checked + .slider:before {
-  transform: translateX(13px);
-}
-
-.slider.round {
-  border-radius: 34px;
-}
-
-.slider.round:before {
-  border-radius: 50%;
 }
 
 /* ------------------------------------------ */
@@ -359,17 +362,13 @@ footer a {
 /* Contact form */
 .contact-content {
   display: grid;
+  grid-gap: 0.5em;
   grid-template-columns: auto auto;
   grid-template-rows: auto auto 1fr auto;
   grid-template-areas: "header"
-                       "name":
+                       "name"
                        "subject"
                        "submit";
-  grid-gap: 1rem;
-  background-color: var(--surface3);
-  color: var(--element3);
-  border-radius: 32px;
-  padding: 1em;
 }
 
 /* Steroid-calc */
@@ -396,18 +395,21 @@ input[type=text], select, textarea {
 
 /* Style the submit button with a specific background color etc */
 input[type=submit] {
-  background-color: var(--surface2);
+  background-color: var(--surface3);
   color: var(--element3);
   padding: 10px 20px;
   border: none;
   border-radius: 4px;
   cursor: pointer;
   transition: 0.5s;
+  border-style: outset;
+  border-color: var(--element3);
+  border-width: 1px;
 }
 
 /* When moving the mouse over the submit button, add a darker green color */
 input[type=submit]:hover {
-  background-color: var(--elementInverse);
+  background-color: var(--surface1);
   color: var(--element3);
 }
 
