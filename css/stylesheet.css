@@ -53,9 +53,9 @@ body {
 /* MISC ITEMS */
 
 /* Hover items on content area */
-.sidebar-left a:hover, .dropdown-content a:hover, nav a:hover, footer a:hover {
+.sidebar-left a:hover, .sidebar-left span:hover,  .dropdown-content a:hover, nav a:hover, footer a:hover {
   color: #FF851B;
-  transition: color 0.3s;
+  transition: color 0.5s;
   cursor: pointer;
 }
 
@@ -168,6 +168,22 @@ nav a {
   color: rgba(189, 189, 189, 0.87);
 }
 
+/* Defaults */
+.mobile-nav-btn{
+  display: none;
+}
+
+/* Defaults */
+.desktop-nav-title {
+  display: block;
+}
+
+.mobile-nav-content {
+  display: block;
+}
+
+
+
  /* Style the caret/arrow */
  .dropdown-btn {
   cursor: pointer;
@@ -267,22 +283,35 @@ footer a {
     grid-row-gap: 0.5em;
     grid-template-areas:
    "side"
-   "body";s
+   "body";
+  }
+  /* Collapse Navigation */
+  .mobile-nav-content {
+    display: none;
+  }
+   /* Show the nav when user clicks navbar */
+ .downlist2 {
+  display: block;
+}
+  /* Collapse Navigation */
+  .mobile-nav-btn{
+    display: block;
+  }
+  /* Collapse Navigation */
+  .desktop-nav-title {
+    display: none;
   }
 }
 
 .subgrid2 {
   display: grid;
-  grid-template-columns: auto auto auto;
-  grid-template-rows: auto auto auto auto 1fr 1fr 1fr;
+  grid-template-columns: auto;
+  grid-template-rows: auto auto auto auto auto;
   grid-gap: 0.5rem;
-  grid-template-areas: "form form form"
-                       "form1 form1 form1"
-                       "form2 form2 form2"
-                       "form3 form3 form3"
-                       "plot plot plot"
-                       "plot plot plot"
-                       "plot plot plot";
+  grid-template-areas: "1"
+                       "2"
+                       "3"
+                       "4";
 }
 
 /* -------------------------------------------------------------------------------------- */
@@ -554,23 +583,19 @@ select, .dose{
   width: 1fr;
 }
 
-/* CSS GRIDDING THE TOOL */
-.form {
-  grid-area: form form form;
+/* CSS GRIDS FOR STEROID-CALC */
+.steroid-calc-content {
+  grid-area: 1;
 }
 
-.form1 {
-  grid-area: form1 form1 form1;
+.inputs1 {
+  grid-area: 2;
 }
 
-.form2 {
-  grid-area: form2 form2 form2;
+.inputs2 {
+  grid-area: 3;
 }
 
-.form3 {
-  grid-area: form3 form3 form3;
-}
-
-.form4 {
-  grid-area: plot;
+.graph-div {
+  grid-area: 4;
 }
