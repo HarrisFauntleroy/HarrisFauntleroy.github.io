@@ -272,7 +272,7 @@ input:checked + .slider:before {
 }
 
 /* Links on links page*/
-.links-content a { text-decoration: none; color: var(--element3);}
+.links-content a { line-height: 1.5em; text-decoration: none; color: var(--element3);}
 .links-content a:visited { text-decoration: none; color:var(--tertiary);}
 .links-content a:hover { text-decoration: none; color:var(--tertiary); }
 .links-content a:focus { text-decoration: none; color:var(--tertiary); }
