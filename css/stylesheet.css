@@ -173,8 +173,10 @@ nav a {
 
 /* DARK MODE TOGGLE*/
 .theme-switch-wrapper {
-  display: flex;
-  align-items: center;
+  display: grid;
+  grid-area: avatar;
+  position:absolute; top:0; right:0;
+  align-items: right;
 
 }
 .theme-switch {
