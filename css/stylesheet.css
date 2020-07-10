@@ -46,14 +46,14 @@ body {
 
 /* MISC ITEMS */
 
-/* Hover items on content area */
+/* Hover items on content area (MIGHT NEED TIDYING) */
 .sidebar-left a:hover, .sidebar-left span:hover,  .dropdown-content a:hover, nav a:hover, footer a:hover {
   color: var(--primary);
   transition: color 0.5s;
   cursor: pointer;
 }
 
-/* Active items on content area */
+/* Active items on content area (MIGHT NEED TIDYING) */
 .sidebar-left .active, .dropdown-content .active, nav .active {
   color: var(--primary);
 }
