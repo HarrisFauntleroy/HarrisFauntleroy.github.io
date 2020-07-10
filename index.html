@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" color-mode="dark">
 
 <head>
     <meta charset="utf-8">
@@ -53,9 +53,9 @@
 
 <! SIDEBAR >		  
 			<aside class="sidebar-left">
-				<h3 class="desktop-nav-title" style="text-align: center;">Navigation <i class="fa fa-globe fa-spin" aria-hidden="true"></i></h3>
+				<h3 class="desktop-nav-title" style="text-align: center;">Navigation <i class="fa fa-compass fa-spin" aria-hidden="true"></i></h3>
 				<span class="mobile-nav-btn"><h3 style="text-align: center;">Navigation <i class="fa fa-bars" aria-hidden="true"></i></h3></span>
-					<ul class="mobile-nav-content">
+					<ul class="side-nav-content">
 						<li><span class="dropdown-btn">Web Development</span>
 							<ul class="dropdown-content">
 								<a href="#">WIP</a>
@@ -87,6 +87,13 @@
 						<li class="">
 							<a href="/links.html"><i class="fa fa-link" aria-hidden="true"></i> Links</a>						
 						</li>
+						<li class="theme-switch-wrapper">
+							Dark mode
+							<label class="theme-switch" for="checkbox">
+								<input type="checkbox" id="checkbox" />
+								<div class="slider round"></div>
+						  </label>
+						</li>						
 					</ul>
 			</aside>
 
@@ -113,6 +120,8 @@
 
 <! JAVASCRIPT >
 	<script type="text/javascript" src="./js/dropdown.js"></script>
+	<script type="text/javascript" src="./js/themepref.js"></script>
+	<script type="text/javascript" src="./js/darkmode.js"></script>
 
 </body>
 
