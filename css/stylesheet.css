@@ -380,19 +380,10 @@ footer a {
   grid-gap: 0.5em;
   grid-template-columns: auto 1fr;
   grid-template-rows: auto auto 1fr auto;
-  grid-template-areas: "a1 ."
-                       "b1 ."
+  grid-template-areas: "a1 a2"
+                       "b1 b2"
                        "c1 c1"
-                       "d1 .";
-}
-
-.contact-sub-container {
-  grid-area: b1;
-  display: grid;
-  grid-gap: 1em;
-  grid-template-columns: 1fr fr;
-  grid-template-rows: 1fr;
-  grid-template-areas: "aa1 bb1";
+                       "d1 d2";
 }
 
 /* Steroid-calc */
@@ -412,14 +403,9 @@ footer a {
 
 /* CONTACT FORM */
 
-.f_name {
+._name {
   display: grid;
   grid-area: aa1;
-}
-
-.l_name {
-  display: grid;
-  grid-area: bb1;
 }
 
 input[type=text] {
@@ -453,7 +439,7 @@ textarea[name=subject] {
 /* Submit button */
 .submit {
   display: grid;
-  grid-area: d1 ;
+  grid-area: d1;
   justify-self: left;
 }
 
@@ -471,6 +457,14 @@ input[type=submit] {
 input[type=submit]:hover {
   background-color: var(--surface1);
   color: var(--element3);
+}
+
+.version {
+  display: grid;
+  grid-area: a2;
+  background-color: var(--surface2);
+  color: var(--element3);
+  justify-self: right;
 }
 
 /* -------------------------------------------------------------------------------------- */
