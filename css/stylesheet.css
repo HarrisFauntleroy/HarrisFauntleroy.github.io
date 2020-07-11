@@ -415,13 +415,13 @@ footer a {
 .f_name {
   display: grid;
   grid-area: aa1;
-  max-width: 25em;
+  max-width: 1fr;
 }
 
 .l_name {
   display: grid;
   grid-area: bb1;
-  max-width: 25em;
+  max-width: 1fr;
 }
 
 input[type=text] {
@@ -434,8 +434,8 @@ input[type=text] {
 .subject {
   display: grid;
   grid-area: c1;
-  max-width: 51em;
-  max-height: 51em;
+  max-width: 1fr;
+  max-height: 1fr;
 }
 
 /* Additional div to make contact form flexbox */
