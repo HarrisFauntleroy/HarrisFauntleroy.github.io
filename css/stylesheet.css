@@ -112,12 +112,12 @@ h1, h2, h3 {
 .slider:before {
   background-color: var(--surface1);
   bottom: 2px;
+  left: 2px;
   content: "";
   height: 13px;
-  left: 2px;
+  width: 13px;
   position: absolute;
   transition: .4s;
-  width: 13px;
 }
 
 input:checked + .slider {
