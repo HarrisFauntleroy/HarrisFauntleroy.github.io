@@ -415,27 +415,25 @@ footer a {
 .f_name {
   display: grid;
   grid-area: aa1;
-  max-width: 1fr;
 }
 
 .l_name {
   display: grid;
   grid-area: bb1;
-  max-width: 1fr;
 }
 
 input[type=text] {
   background-color: var(--surface3);
   color: var(--element3);
   padding: 0.5em;
+  border: none;
+  min-width: 1fr;
 }
 
 /* Main text area */
 .subject {
   display: grid;
   grid-area: c1;
-  max-width: 1fr;
-  max-height: 1fr;
 }
 
 /* Additional div to make contact form flexbox */
@@ -448,6 +446,7 @@ textarea[name=subject] {
   flex: 1;
   background-color: var(--surface3);
   color: var(--element3);
+  border: none;
   padding: 0.5em;
 }
 
@@ -463,6 +462,7 @@ input[type=submit] {
   background-color: var(--surface3);
   color: var(--element3);
   padding: 0.5em;
+  border: none;
   cursor: pointer;
   transition: 0.5s;
 }
