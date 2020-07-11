@@ -100,24 +100,32 @@
 
 <! MAIN BODY >
 		<div class="contact-content">
-			<h2>Get in touch...</h2>
-			<form action="action_page.php"></form>
-				<div class="fname">
-					<input type="text" id="fname" name="firstname" placeholder="First name...">
-				</div>
 
-				<div class="lname">
-					<input type="text" id="lname" name="lastname" placeholder="Last name...">
+			<h2>Get in touch...</h2>
+				<div class="contact-sub-container">
+					<div class="f_name">
+						<label for="subject"></label>
+						<input type="text" id="f_name" name="firstname" placeholder="First name...">
+					</div>
+
+					<div class="l_name">
+						<label for="subject"></label>
+						<input type="text" id="l_name" name="lastname" placeholder="Last name...">
+					</div>
 				</div>
 				
 				<div class="subject">
-					<textarea id="subject" name="subject" placeholder="Leave a message..." style="height:200px"></textarea>
+					<div class="flexform">
+						<label for="subject"></label>
+						<textarea id="subject" name="subject" placeholder="Write something..."></textarea>
+					</div>
 				</div>
 
 				<div class="submit">
-					<input type="submit" value="Submit">
+					<label for="subject"></label>
+					<input type="submit" id="submit" value="Submit">
 				</div>
-			</form>
+
 		</div>
 			 
 <!SUB GRID ! END>

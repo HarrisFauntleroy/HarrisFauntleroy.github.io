@@ -45,6 +45,18 @@ body {
 
 /* MISC ITEMS */
 
+/* Border box inheritance */
+html {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit;
+  }
+
 /* Hover items on content area (MIGHT NEED TIDYING) */
 .sidebar-left a:hover, .sidebar-left span:hover,  .dropdown-content a:hover, nav a:hover, footer a:hover {
   color: var(--primary);
@@ -275,7 +287,6 @@ nav a {
   text-align: left;
   line-height: 1em;
   border-radius: 1em;
-  box-sizing: border-box;
   background-color: var(--surface2);
   color: var(--element3);
 }
@@ -369,10 +380,19 @@ footer a {
   grid-gap: 0.5em;
   grid-template-columns: auto auto;
   grid-template-rows: auto auto 1fr auto;
-  grid-template-areas: "header"
-                       "name"
-                       "subject"
-                       "submit";
+  grid-template-areas: "a1 ."
+                       "b1 ."
+                       "c1 ."
+                       "d1 .";
+}
+
+.contact-sub-container {
+  grid-area: b1;
+  display: grid;
+  grid-gap: 0.5em;
+  grid-template-columns: 1fr fr;
+  grid-template-rows: 1fr;
+  grid-template-areas: "aa1 bb1";
 }
 
 /* Steroid-calc */
@@ -391,24 +411,50 @@ footer a {
 /* -------------------------------------------------------------------------------------- */
 
 /* CONTACT FORM */
-/* Style inputs with type="text", select elements and textareas */
-input[type=text], select, textarea {
-  box-sizing: border-box; /* Make sure that padding and width stays in place */
-  grid-area: first last country;
+
+.f_name {
+  display: grid;
+  grid-area: aa1;
+  max-width: 25em;
+}
+
+.l_name {
+  display: grid;
+  grid-area: bb1;
+  max-width: 25em;
+}
+
+.subject {
+  display: grid;
+  grid-area: c1;
+  max-width: 51em;
+  max-height: 51em;
+  border: dashed;
+}
+
+.flexform {
+  display: flex;
+}
+
+textarea[name=subject] {
+  resize: none;
+  flex: 1;
+}
+
+.submit {
+  display: grid;
+  grid-area: d1 ;
+  justify-self: left;
 }
 
 /* Style the submit button with a specific background color etc */
 input[type=submit] {
   background-color: var(--surface3);
   color: var(--element3);
-  padding: 10px 20px;
-  border: none;
-  border-radius: 4px;
+  padding: 1em;
   cursor: pointer;
   transition: 0.5s;
-  border-style: outset;
-  border-color: var(--element3);
-  border-width: 1px;
+  border-radius: 1em;
 }
 
 /* When moving the mouse over the submit button, add a darker green color */
@@ -605,14 +651,6 @@ label small {
 
 .about-div {
   color: rgba(189, 189, 189, 0.87);
-}
-
-*,
-*:before,
-*:after {
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
 }
 
 .small-4 {
