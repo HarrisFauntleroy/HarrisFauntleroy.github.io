@@ -121,7 +121,7 @@ h1, h2, h3 {
 }
 
 input:checked + .slider {
-  background-color: var(--secondary);
+  background-color: var(--element1);
 }
 
 input:checked + .slider:before {
