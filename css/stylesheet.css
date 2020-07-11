@@ -405,7 +405,7 @@ footer a {
 
 ._name {
   display: grid;
-  grid-area: aa1;
+  grid-area: b1;
 }
 
 input[type=text] {
