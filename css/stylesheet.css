@@ -382,7 +382,7 @@ footer a {
   grid-template-rows: auto auto 1fr auto;
   grid-template-areas: "a1 ."
                        "b1 ."
-                       "c1 ."
+                       "c1 c1"
                        "d1 .";
 }
 
