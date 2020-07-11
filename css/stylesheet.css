@@ -378,7 +378,7 @@ footer a {
 .contact-content {
   display: grid;
   grid-gap: 0.5em;
-  grid-template-columns: auto auto;
+  grid-template-columns: auto 1fr;
   grid-template-rows: auto auto 1fr auto;
   grid-template-areas: "a1 ."
                        "b1 ."
@@ -389,7 +389,7 @@ footer a {
 .contact-sub-container {
   grid-area: b1;
   display: grid;
-  grid-gap: 0.5em;
+  grid-gap: 1em;
   grid-template-columns: 1fr fr;
   grid-template-rows: 1fr;
   grid-template-areas: "aa1 bb1";
@@ -424,14 +424,21 @@ footer a {
   max-width: 25em;
 }
 
+input[type=text] {
+  background-color: var(--surface3);
+  color: var(--element3);
+  padding: 0.5em;
+}
+
+/* Main text area */
 .subject {
   display: grid;
   grid-area: c1;
   max-width: 51em;
   max-height: 51em;
-  border: dashed;
 }
 
+/* Additional div to make contact form flexbox */
 .flexform {
   display: flex;
 }
@@ -439,8 +446,12 @@ footer a {
 textarea[name=subject] {
   resize: none;
   flex: 1;
+  background-color: var(--surface3);
+  color: var(--element3);
+  padding: 0.5em;
 }
 
+/* Submit button */
 .submit {
   display: grid;
   grid-area: d1 ;
@@ -451,10 +462,9 @@ textarea[name=subject] {
 input[type=submit] {
   background-color: var(--surface3);
   color: var(--element3);
-  padding: 1em;
+  padding: 0.5em;
   cursor: pointer;
   transition: 0.5s;
-  border-radius: 1em;
 }
 
 /* When moving the mouse over the submit button, add a darker green color */
