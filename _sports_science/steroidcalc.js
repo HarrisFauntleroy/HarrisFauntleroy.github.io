@@ -1,27 +1,27 @@
 $("#plot-button").click(function () { 
 
-    var tiempo;
+    var time;
     
     $(".single-compound-div").each(function() {    
       var schedule = $(this).find('.schedule').val();
       if(schedule=="0.5"){
-          tiempo = 4;
+          time = 4;
       }else{
-          tiempo  =2;
+          time  =2;
       }
       })
     
       var days=$("#length").val()*7;
-      var ejex= [];
+      var ajax= [];
       for (var i = 0; i < days; i++) {
-          if(tiempo==4){
-          ejex.push(i);
-          ejex.push(i+0.25);
-          ejex.push(i+0.5);
-          ejex.push(i+0.75);
+          if(time==4){
+          ajax.push(i);
+          ajax.push(i+0.25);
+          ajax.push(i+0.5);
+          ajax.push(i+0.75);
           }else{
-             ejex.push(i);
-              ejex.push(i+0.5); 
+             ajax.push(i);
+              ajax.push(i+0.5); 
           }
           
       };
@@ -33,7 +33,7 @@ $("#plot-button").click(function () {
               text: 'Release mg/day'
           },
           xAxis: {
-              categories: ejex
+              categories: ajax
           },
           yAxis: {
               title: {
@@ -52,7 +52,7 @@ $("#plot-button").click(function () {
     var cont=0;
     
     var comData=[];
-    for (var i = 0; i < ejex.length; i++) {
+    for (var i = 0; i < ajax.length; i++) {
           comData.push(0); 
       };
     
@@ -177,8 +177,8 @@ $("#plot-button").click(function () {
       
     
     
-      var inicio=parseInt(from)*7-7;
-      var diferenciaDias=(parseInt(to)*7)-inicio;
+      var start=parseInt(from)*7-7;
+      var differenceInDays=(parseInt(to)*7)-start;
     
       
     
@@ -189,50 +189,50 @@ $("#plot-button").click(function () {
           //( Exp(-(dia  ) * LN( 2 ) / half )* dose * weigh * LN( 2 )/ E$4,2)
           switch(schedule) {
               case "0.5":
-                   for (var i = 0; i < (ejex.length-(inicio*tiempo)); i++) {
-                      var dosisDia= Math.exp(-ejex[i]*Math.log(2)/half)*dose*efect*Math.log(2)/half;
-                      dosisDia= +dosisDia.toFixed(2); 
-                          for (var y = 0; y < (diferenciaDias*tiempo) ; y+=(0.5*tiempo)) {
-                              if((i+y+(inicio*tiempo))>=ejex.length){
+                   for (var i = 0; i < (ajax.length-(start*time)); i++) {
+                      var dailyDose= Math.exp(-ajax[i]*Math.log(2)/half)*dose*efect*Math.log(2)/half;
+                      dailyDose= +dailyDose.toFixed(2); 
+                          for (var y = 0; y < (differenceInDays*time) ; y+=(0.5*time)) {
+                              if((i+y+(start*time))>=ajax.length){
                                   break;
                               }
                               var temp;
-                              if(isNaN(comData[i+y+(inicio*tiempo)])){
+                              if(isNaN(comData[i+y+(start*time)])){
                                   temp=0;
                               }else{
-                                  temp=comData[i+y+(inicio*tiempo)];
+                                  temp=comData[i+y+(start*time)];
                               }
-                              var dosisDiaSuma=dosisDia+temp;
-                              if(isNaN(dosisDiaSuma)){
+                              var totalDailyDose=dailyDose+temp;
+                              if(isNaN(totalDailyDose)){
     
                               }else{
-                                  dosisDiaSuma= +dosisDiaSuma.toFixed(2);
-                               comData[i+y+(inicio*tiempo)]=dosisDiaSuma;
+                                  totalDailyDose= +totalDailyDose.toFixed(2);
+                               comData[i+y+(start*time)]=totalDailyDose;
                               }
     
                            }; 
                       }      
                break;
               case "1":
-                  for (var i = 0; i < (ejex.length-(inicio*tiempo)); i++) {
-                      var dosisDia= Math.exp(-ejex[i]*Math.log(2)/half)*dose*efect*Math.log(2)/half;
-                      dosisDia= +dosisDia.toFixed(2); 
-                          for (var y = 0; y < (diferenciaDias*tiempo) ; y+=(parseInt(schedule)*tiempo)) {
-                              if((i+y+(inicio*tiempo))>=ejex.length){
+                  for (var i = 0; i < (ajax.length-(start*time)); i++) {
+                      var dailyDose= Math.exp(-ajax[i]*Math.log(2)/half)*dose*efect*Math.log(2)/half;
+                      dailyDose= +dailyDose.toFixed(2); 
+                          for (var y = 0; y < (differenceInDays*time) ; y+=(parseInt(schedule)*time)) {
+                              if((i+y+(start*time))>=ajax.length){
                                   break;
                               }
                               var temp;
-                              if(isNaN(comData[i+y+(inicio*tiempo)])){
+                              if(isNaN(comData[i+y+(start*time)])){
                                   temp=0;
                               }else{
-                                  temp=comData[i+y+(inicio*tiempo)];
+                                  temp=comData[i+y+(start*time)];
                               }
-                              var dosisDiaSuma=dosisDia+temp;
-                              if(isNaN(dosisDiaSuma)){
+                              var totalDailyDose=dailyDose+temp;
+                              if(isNaN(totalDailyDose)){
     
                               }else{
-                                  dosisDiaSuma= +dosisDiaSuma.toFixed(2);
-                               comData[i+y+(inicio*tiempo)]=dosisDiaSuma;
+                                  totalDailyDose= +totalDailyDose.toFixed(2);
+                               comData[i+y+(start*time)]=totalDailyDose;
                               }
                                
                                
@@ -240,550 +240,550 @@ $("#plot-button").click(function () {
                       } 
               break;
               case "2":
-                  for (var i = 0; i < (ejex.length-(inicio*tiempo)); i++) {
-                      var dosisDia= Math.exp(-ejex[i]*Math.log(2)/half)*dose*efect*Math.log(2)/half;
-                      dosisDia= +dosisDia.toFixed(2); 
-                          for (var y = 0; y < (diferenciaDias*tiempo) ; y+=(parseInt(schedule)*tiempo)) {
-                              if((i+y+(inicio*tiempo))>=ejex.length){
+                  for (var i = 0; i < (ajax.length-(start*time)); i++) {
+                      var dailyDose= Math.exp(-ajax[i]*Math.log(2)/half)*dose*efect*Math.log(2)/half;
+                      dailyDose= +dailyDose.toFixed(2); 
+                          for (var y = 0; y < (differenceInDays*time) ; y+=(parseInt(schedule)*time)) {
+                              if((i+y+(start*time))>=ajax.length){
                                   break;
                               }
                                var temp;
-                              if(isNaN(comData[i+y+(inicio*tiempo)])){
+                              if(isNaN(comData[i+y+(start*time)])){
                                   temp=0;
                               }else{
-                                  temp=comData[i+y+(inicio*tiempo)];
+                                  temp=comData[i+y+(start*time)];
                               }
-                              var dosisDiaSuma=dosisDia+temp;
-                              if(isNaN(dosisDiaSuma)){
+                              var totalDailyDose=dailyDose+temp;
+                              if(isNaN(totalDailyDose)){
     
                               }else{
-                                  dosisDiaSuma= +dosisDiaSuma.toFixed(2);
-                               comData[i+y+(inicio*tiempo)]=dosisDiaSuma;
+                                  totalDailyDose= +totalDailyDose.toFixed(2);
+                               comData[i+y+(start*time)]=totalDailyDose;
                               }
                               
                            }; 
                       } 
               break;
               case "3":
-                  for (var i = 0; i < (ejex.length-(inicio*tiempo)); i++) {
-                      var dosisDia= Math.exp(-ejex[i]*Math.log(2)/half)*dose*efect*Math.log(2)/half;
-                      dosisDia= +dosisDia.toFixed(2); 
-                          for (var y = 0; y < (diferenciaDias*tiempo) ; y+=(parseInt(schedule)*tiempo)) {
-                              if((i+y+(inicio*tiempo))>=ejex.length){
+                  for (var i = 0; i < (ajax.length-(start*time)); i++) {
+                      var dailyDose= Math.exp(-ajax[i]*Math.log(2)/half)*dose*efect*Math.log(2)/half;
+                      dailyDose= +dailyDose.toFixed(2); 
+                          for (var y = 0; y < (differenceInDays*time) ; y+=(parseInt(schedule)*time)) {
+                              if((i+y+(start*time))>=ajax.length){
                                   break;
                               }
                               var temp;
-                              if(isNaN(comData[i+y+(inicio*tiempo)])){
+                              if(isNaN(comData[i+y+(start*time)])){
                                   temp=0;
                               }else{
-                                  temp=comData[i+y+(inicio*tiempo)];
+                                  temp=comData[i+y+(start*time)];
                               }
-                              var dosisDiaSuma=dosisDia+temp;
-                              if(isNaN(dosisDiaSuma)){
+                              var totalDailyDose=dailyDose+temp;
+                              if(isNaN(totalDailyDose)){
     
                               }else{
-                                  dosisDiaSuma= +dosisDiaSuma.toFixed(2);
-                               comData[i+y+(inicio*tiempo)]=dosisDiaSuma;
+                                  totalDailyDose= +totalDailyDose.toFixed(2);
+                               comData[i+y+(start*time)]=totalDailyDose;
                               }
                               
                            }; 
                       } 
               break;
               case "3.5":
-                  for (var i = 0; i < (ejex.length-(inicio*tiempo)); i++) {
-                      var dosisDia= Math.exp(-ejex[i]*Math.log(2)/half)*dose*efect*Math.log(2)/half;
-                      dosisDia= +dosisDia.toFixed(2); 
-                          for (var y = 0; y < (diferenciaDias*tiempo) ; y+=(parseFloat(schedule)*tiempo)) {
-                              if((i+y+(inicio*tiempo))>=ejex.length){
+                  for (var i = 0; i < (ajax.length-(start*time)); i++) {
+                      var dailyDose= Math.exp(-ajax[i]*Math.log(2)/half)*dose*efect*Math.log(2)/half;
+                      dailyDose= +dailyDose.toFixed(2); 
+                          for (var y = 0; y < (differenceInDays*time) ; y+=(parseFloat(schedule)*time)) {
+                              if((i+y+(start*time))>=ajax.length){
                                   break;
                               }
                               var temp;
-                              if(isNaN(comData[i+y+(inicio*tiempo)])){
+                              if(isNaN(comData[i+y+(start*time)])){
                                   temp=0;
                               }else{
-                                  temp=comData[i+y+(inicio*tiempo)];
+                                  temp=comData[i+y+(start*time)];
                               }
-                              var dosisDiaSuma=dosisDia+temp;
-                              if(isNaN(dosisDiaSuma)){
+                              var totalDailyDose=dailyDose+temp;
+                              if(isNaN(totalDailyDose)){
     
                               }else{
-                                  dosisDiaSuma= +dosisDiaSuma.toFixed(2);
-                               comData[i+y+(inicio*tiempo)]=dosisDiaSuma;
+                                  totalDailyDose= +totalDailyDose.toFixed(2);
+                               comData[i+y+(start*time)]=totalDailyDose;
                               }
                               
                            }; 
                       } 
               break;
               case "4":
-                 for (var i = 0; i < (ejex.length-(inicio*tiempo)); i++) {
-                      var dosisDia= Math.exp(-ejex[i]*Math.log(2)/half)*dose*efect*Math.log(2)/half;
-                      dosisDia= +dosisDia.toFixed(2); 
-                          for (var y = 0; y < (diferenciaDias*tiempo) ; y+=(parseInt(schedule)*tiempo)) {
-                              if((i+y+(inicio*tiempo))>=ejex.length){
+                 for (var i = 0; i < (ajax.length-(start*time)); i++) {
+                      var dailyDose= Math.exp(-ajax[i]*Math.log(2)/half)*dose*efect*Math.log(2)/half;
+                      dailyDose= +dailyDose.toFixed(2); 
+                          for (var y = 0; y < (differenceInDays*time) ; y+=(parseInt(schedule)*time)) {
+                              if((i+y+(start*time))>=ajax.length){
                                   break;
                               }
                                var temp;
-                              if(isNaN(comData[i+y+(inicio*tiempo)])){
+                              if(isNaN(comData[i+y+(start*time)])){
                                   temp=0;
                               }else{
-                                  temp=comData[i+y+(inicio*tiempo)];
+                                  temp=comData[i+y+(start*time)];
                               }
-                              var dosisDiaSuma=dosisDia+temp;
-                              if(isNaN(dosisDiaSuma)){
+                              var totalDailyDose=dailyDose+temp;
+                              if(isNaN(totalDailyDose)){
     
                               }else{
-                                  dosisDiaSuma= +dosisDiaSuma.toFixed(2);
-                               comData[i+y+(inicio*tiempo)]=dosisDiaSuma;
+                                  totalDailyDose= +totalDailyDose.toFixed(2);
+                               comData[i+y+(start*time)]=totalDailyDose;
                               }
                               
                            }; 
                       } 
               break;
               case "5":
-                  for (var i = 0; i < (ejex.length-(inicio*tiempo)); i++) {
-                      var dosisDia= Math.exp(-ejex[i]*Math.log(2)/half)*dose*efect*Math.log(2)/half;
-                      dosisDia= +dosisDia.toFixed(2); 
-                          for (var y = 0; y < (diferenciaDias*tiempo) ; y+=(parseInt(schedule)*tiempo)) {
-                              if((i+y+(inicio*tiempo))>=ejex.length){
+                  for (var i = 0; i < (ajax.length-(start*time)); i++) {
+                      var dailyDose= Math.exp(-ajax[i]*Math.log(2)/half)*dose*efect*Math.log(2)/half;
+                      dailyDose= +dailyDose.toFixed(2); 
+                          for (var y = 0; y < (differenceInDays*time) ; y+=(parseInt(schedule)*time)) {
+                              if((i+y+(start*time))>=ajax.length){
                                   break;
                               }
                                var temp;
-                              if(isNaN(comData[i+y+(inicio*tiempo)])){
+                              if(isNaN(comData[i+y+(start*time)])){
                                   temp=0;
                               }else{
-                                  temp=comData[i+y+(inicio*tiempo)];
+                                  temp=comData[i+y+(start*time)];
                               }
-                              var dosisDiaSuma=dosisDia+temp;
-                              if(isNaN(dosisDiaSuma)){
+                              var totalDailyDose=dailyDose+temp;
+                              if(isNaN(totalDailyDose)){
     
                               }else{
-                                  dosisDiaSuma= +dosisDiaSuma.toFixed(2);
-                               comData[i+y+(inicio*tiempo)]=dosisDiaSuma;
+                                  totalDailyDose= +totalDailyDose.toFixed(2);
+                               comData[i+y+(start*time)]=totalDailyDose;
                               }
                               
                            }; 
                       } 
               break;
               case "6":
-                 for (var i = 0; i < (ejex.length-(inicio*tiempo)); i++) {
-                      var dosisDia= Math.exp(-ejex[i]*Math.log(2)/half)*dose*efect*Math.log(2)/half;
-                      dosisDia= +dosisDia.toFixed(2); 
-                          for (var y = 0; y < (diferenciaDias*tiempo) ; y+=(parseInt(schedule)*tiempo)) {
-                              if((i+y+(inicio*tiempo))>=ejex.length){
+                 for (var i = 0; i < (ajax.length-(start*time)); i++) {
+                      var dailyDose= Math.exp(-ajax[i]*Math.log(2)/half)*dose*efect*Math.log(2)/half;
+                      dailyDose= +dailyDose.toFixed(2); 
+                          for (var y = 0; y < (differenceInDays*time) ; y+=(parseInt(schedule)*time)) {
+                              if((i+y+(start*time))>=ajax.length){
                                   break;
                               }
                                var temp;
-                              if(isNaN(comData[i+y+(inicio*tiempo)])){
+                              if(isNaN(comData[i+y+(start*time)])){
                                   temp=0;
                               }else{
-                                  temp=comData[i+y+(inicio*tiempo)];
+                                  temp=comData[i+y+(start*time)];
                               }
-                              var dosisDiaSuma=dosisDia+temp;
-                              if(isNaN(dosisDiaSuma)){
+                              var totalDailyDose=dailyDose+temp;
+                              if(isNaN(totalDailyDose)){
     
                               }else{
-                                  dosisDiaSuma= +dosisDiaSuma.toFixed(2);
-                               comData[i+y+(inicio*tiempo)]=dosisDiaSuma;
+                                  totalDailyDose= +totalDailyDose.toFixed(2);
+                               comData[i+y+(start*time)]=totalDailyDose;
                               }
                               
                            }; 
                       } 
               break;
               case "7":
-                 for (var i = 0; i < (ejex.length-(inicio*tiempo)); i++) {
-                      var dosisDia= Math.exp(-ejex[i]*Math.log(2)/half)*dose*efect*Math.log(2)/half;
-                      dosisDia= +dosisDia.toFixed(2); 
-                          for (var y = 0; y < (diferenciaDias*tiempo) ; y+=(parseInt(schedule)*tiempo)) {
-                              if((i+y+(inicio*tiempo))>=ejex.length){
+                 for (var i = 0; i < (ajax.length-(start*time)); i++) {
+                      var dailyDose= Math.exp(-ajax[i]*Math.log(2)/half)*dose*efect*Math.log(2)/half;
+                      dailyDose= +dailyDose.toFixed(2); 
+                          for (var y = 0; y < (differenceInDays*time) ; y+=(parseInt(schedule)*time)) {
+                              if((i+y+(start*time))>=ajax.length){
                                   break;
                               }
                                var temp;
-                              if(isNaN(comData[i+y+(inicio*tiempo)])){
+                              if(isNaN(comData[i+y+(start*time)])){
                                   temp=0;
                               }else{
-                                  temp=comData[i+y+(inicio*tiempo)];
+                                  temp=comData[i+y+(start*time)];
                               }
-                              var dosisDiaSuma=dosisDia+temp;
-                              if(isNaN(dosisDiaSuma)){
+                              var totalDailyDose=dailyDose+temp;
+                              if(isNaN(totalDailyDose)){
     
                               }else{
-                                  dosisDiaSuma= +dosisDiaSuma.toFixed(2);
-                               comData[i+y+(inicio*tiempo)]=dosisDiaSuma;
+                                  totalDailyDose= +totalDailyDose.toFixed(2);
+                               comData[i+y+(start*time)]=totalDailyDose;
                               }
                               
                            }; 
                       } 
               break;
               case "10":
-                 for (var i = 0; i < (ejex.length-(inicio*tiempo)); i++) {
-                      var dosisDia= Math.exp(-ejex[i]*Math.log(2)/half)*dose*efect*Math.log(2)/half;
-                      dosisDia= +dosisDia.toFixed(2); 
-                          for (var y = 0; y < (diferenciaDias*tiempo) ; y+=(parseInt(schedule)*tiempo)) {
-                              if((i+y+(inicio*tiempo))>=ejex.length){
+                 for (var i = 0; i < (ajax.length-(start*time)); i++) {
+                      var dailyDose= Math.exp(-ajax[i]*Math.log(2)/half)*dose*efect*Math.log(2)/half;
+                      dailyDose= +dailyDose.toFixed(2); 
+                          for (var y = 0; y < (differenceInDays*time) ; y+=(parseInt(schedule)*time)) {
+                              if((i+y+(start*time))>=ajax.length){
                                   break;
                               }
                                var temp;
-                              if(isNaN(comData[i+y+(inicio*tiempo)])){
+                              if(isNaN(comData[i+y+(start*time)])){
                                   temp=0;
                               }else{
-                                  temp=comData[i+y+(inicio*tiempo)];
+                                  temp=comData[i+y+(start*time)];
                               }
-                              var dosisDiaSuma=dosisDia+temp;
-                              if(isNaN(dosisDiaSuma)){
+                              var totalDailyDose=dailyDose+temp;
+                              if(isNaN(totalDailyDose)){
     
                               }else{
-                                  dosisDiaSuma= +dosisDiaSuma.toFixed(2);
-                               comData[i+y+(inicio*tiempo)]=dosisDiaSuma;
+                                  totalDailyDose= +totalDailyDose.toFixed(2);
+                               comData[i+y+(start*time)]=totalDailyDose;
                               }
                               
                            }; 
                       } 
               break;
               case "14":
-                  for (var i = 0; i < (ejex.length-(inicio*tiempo)); i++) {
-                      var dosisDia= Math.exp(-ejex[i]*Math.log(2)/half)*dose*efect*Math.log(2)/half;
-                      dosisDia= +dosisDia.toFixed(2); 
-                          for (var y = 0; y < (diferenciaDias*tiempo) ; y+=(parseInt(schedule)*tiempo)) {
-                              if((i+y+(inicio*tiempo))>=ejex.length){
+                  for (var i = 0; i < (ajax.length-(start*time)); i++) {
+                      var dailyDose= Math.exp(-ajax[i]*Math.log(2)/half)*dose*efect*Math.log(2)/half;
+                      dailyDose= +dailyDose.toFixed(2); 
+                          for (var y = 0; y < (differenceInDays*time) ; y+=(parseInt(schedule)*time)) {
+                              if((i+y+(start*time))>=ajax.length){
                                   break;
                               }
                                var temp;
-                              if(isNaN(comData[i+y+(inicio*tiempo)])){
+                              if(isNaN(comData[i+y+(start*time)])){
                                   temp=0;
                               }else{
-                                  temp=comData[i+y+(inicio*tiempo)];
+                                  temp=comData[i+y+(start*time)];
                               }
-                              var dosisDiaSuma=dosisDia+temp;
-                              if(isNaN(dosisDiaSuma)){
+                              var totalDailyDose=dailyDose+temp;
+                              if(isNaN(totalDailyDose)){
     
                               }else{
-                                  dosisDiaSuma= +dosisDiaSuma.toFixed(2);
-                               comData[i+y+(inicio*tiempo)]=dosisDiaSuma;
+                                  totalDailyDose= +totalDailyDose.toFixed(2);
+                               comData[i+y+(start*time)]=totalDailyDose;
                               }
                               
                            }; 
                       } 
               break;
               case "21":
-                  for (var i = 0; i < (ejex.length-(inicio*tiempo)); i++) {
-                      var dosisDia= Math.exp(-ejex[i]*Math.log(2)/half)*dose*efect*Math.log(2)/half;
-                      dosisDia= +dosisDia.toFixed(2); 
-                          for (var y = 0; y < (diferenciaDias*tiempo) ; y+=(parseInt(schedule)*tiempo)) {
-                              if((i+y+(inicio*tiempo))>=ejex.length){
+                  for (var i = 0; i < (ajax.length-(start*time)); i++) {
+                      var dailyDose= Math.exp(-ajax[i]*Math.log(2)/half)*dose*efect*Math.log(2)/half;
+                      dailyDose= +dailyDose.toFixed(2); 
+                          for (var y = 0; y < (differenceInDays*time) ; y+=(parseInt(schedule)*time)) {
+                              if((i+y+(start*time))>=ajax.length){
                                   break;
                               }
                               var temp;
-                              if(isNaN(comData[i+y+(inicio*tiempo)])){
+                              if(isNaN(comData[i+y+(start*time)])){
                                   temp=0;
                               }else{
-                                  temp=comData[i+y+(inicio*tiempo)];
+                                  temp=comData[i+y+(start*time)];
                               }
-                              var dosisDiaSuma=dosisDia+temp;
-                              if(isNaN(dosisDiaSuma)){
+                              var totalDailyDose=dailyDose+temp;
+                              if(isNaN(totalDailyDose)){
     
                               }else{
-                                  dosisDiaSuma= +dosisDiaSuma.toFixed(2);
-                               comData[i+y+(inicio*tiempo)]=dosisDiaSuma;
+                                  totalDailyDose= +totalDailyDose.toFixed(2);
+                               comData[i+y+(start*time)]=totalDailyDose;
                               }
                               
                            }; 
                       } 
               break;
               case "28":
-                  for (var i = 0; i < (ejex.length-(inicio*tiempo)); i++) {
-                      var dosisDia= Math.exp(-ejex[i]*Math.log(2)/half)*dose*efect*Math.log(2)/half;
-                      dosisDia= +dosisDia.toFixed(2); 
-                          for (var y = 0; y < (diferenciaDias*tiempo) ; y+=(parseInt(schedule)*tiempo)) {
-                              if((i+y+(inicio*tiempo))>=ejex.length){
+                  for (var i = 0; i < (ajax.length-(start*time)); i++) {
+                      var dailyDose= Math.exp(-ajax[i]*Math.log(2)/half)*dose*efect*Math.log(2)/half;
+                      dailyDose= +dailyDose.toFixed(2); 
+                          for (var y = 0; y < (differenceInDays*time) ; y+=(parseInt(schedule)*time)) {
+                              if((i+y+(start*time))>=ajax.length){
                                   break;
                               }
                               var temp;
-                              if(isNaN(comData[i+y+(inicio*tiempo)])){
+                              if(isNaN(comData[i+y+(start*time)])){
                                   temp=0;
                               }else{
-                                  temp=comData[i+y+(inicio*tiempo)];
+                                  temp=comData[i+y+(start*time)];
                               }
-                              var dosisDiaSuma=dosisDia+temp;
-                              if(isNaN(dosisDiaSuma)){
+                              var totalDailyDose=dailyDose+temp;
+                              if(isNaN(totalDailyDose)){
     
                               }else{
-                                  dosisDiaSuma= +dosisDiaSuma.toFixed(2);
-                               comData[i+y+(inicio*tiempo)]=dosisDiaSuma;
+                                  totalDailyDose= +totalDailyDose.toFixed(2);
+                               comData[i+y+(start*time)]=totalDailyDose;
                               }
                               
                            }; 
                       } 
               break;
               case "35":
-                  for (var i = 0; i < (ejex.length-(inicio*tiempo)); i++) {
-                      var dosisDia= Math.exp(-ejex[i]*Math.log(2)/half)*dose*efect*Math.log(2)/half;
-                      dosisDia= +dosisDia.toFixed(2); 
-                          for (var y = 0; y < (diferenciaDias*tiempo) ; y+=(parseInt(schedule)*tiempo)) {
-                              if((i+y+(inicio*tiempo))>=ejex.length){
+                  for (var i = 0; i < (ajax.length-(start*time)); i++) {
+                      var dailyDose= Math.exp(-ajax[i]*Math.log(2)/half)*dose*efect*Math.log(2)/half;
+                      dailyDose= +dailyDose.toFixed(2); 
+                          for (var y = 0; y < (differenceInDays*time) ; y+=(parseInt(schedule)*time)) {
+                              if((i+y+(start*time))>=ajax.length){
                                   break;
                               }
                               var temp;
-                              if(isNaN(comData[i+y+(inicio*tiempo)])){
+                              if(isNaN(comData[i+y+(start*time)])){
                                   temp=0;
                               }else{
-                                  temp=comData[i+y+(inicio*tiempo)];
+                                  temp=comData[i+y+(start*time)];
                               }
-                              var dosisDiaSuma=dosisDia+temp;
-                              if(isNaN(dosisDiaSuma)){
+                              var totalDailyDose=dailyDose+temp;
+                              if(isNaN(totalDailyDose)){
     
                               }else{
-                                  dosisDiaSuma= +dosisDiaSuma.toFixed(2);
-                               comData[i+y+(inicio*tiempo)]=dosisDiaSuma;
+                                  totalDailyDose= +totalDailyDose.toFixed(2);
+                               comData[i+y+(start*time)]=totalDailyDose;
                               }
                               
                            }; 
                       } 
               break;
               case "42":
-                  for (var i = 0; i < (ejex.length-(inicio*tiempo)); i++) {
-                      var dosisDia= Math.exp(-ejex[i]*Math.log(2)/half)*dose*efect*Math.log(2)/half;
-                      dosisDia= +dosisDia.toFixed(2); 
-                          for (var y = 0; y < (diferenciaDias*tiempo) ; y+=(parseInt(schedule)*tiempo)) {
-                              if((i+y+(inicio*tiempo))>=ejex.length){
+                  for (var i = 0; i < (ajax.length-(start*time)); i++) {
+                      var dailyDose= Math.exp(-ajax[i]*Math.log(2)/half)*dose*efect*Math.log(2)/half;
+                      dailyDose= +dailyDose.toFixed(2); 
+                          for (var y = 0; y < (differenceInDays*time) ; y+=(parseInt(schedule)*time)) {
+                              if((i+y+(start*time))>=ajax.length){
                                   break;
                               }
                               var temp;
-                              if(isNaN(comData[i+y+(inicio*tiempo)])){
+                              if(isNaN(comData[i+y+(start*time)])){
                                   temp=0;
                               }else{
-                                  temp=comData[i+y+(inicio*tiempo)];
+                                  temp=comData[i+y+(start*time)];
                               }
-                              var dosisDiaSuma=dosisDia+temp;
-                              if(isNaN(dosisDiaSuma)){
+                              var totalDailyDose=dailyDose+temp;
+                              if(isNaN(totalDailyDose)){
     
                               }else{
-                                  dosisDiaSuma= +dosisDiaSuma.toFixed(2);
-                               comData[i+y+(inicio*tiempo)]=dosisDiaSuma;
+                                  totalDailyDose= +totalDailyDose.toFixed(2);
+                               comData[i+y+(start*time)]=totalDailyDose;
                               }
                               
                            }; 
                       } 
               break;
               case "49":
-                  for (var i = 0; i < (ejex.length-(inicio*tiempo)); i++) {
-                      var dosisDia= Math.exp(-ejex[i]*Math.log(2)/half)*dose*efect*Math.log(2)/half;
-                      dosisDia= +dosisDia.toFixed(2); 
-                          for (var y = 0; y < (diferenciaDias*tiempo) ; y+=(parseInt(schedule)*tiempo)) {
-                              if((i+y+(inicio*tiempo))>=ejex.length){
+                  for (var i = 0; i < (ajax.length-(start*time)); i++) {
+                      var dailyDose= Math.exp(-ajax[i]*Math.log(2)/half)*dose*efect*Math.log(2)/half;
+                      dailyDose= +dailyDose.toFixed(2); 
+                          for (var y = 0; y < (differenceInDays*time) ; y+=(parseInt(schedule)*time)) {
+                              if((i+y+(start*time))>=ajax.length){
                                   break;
                               }
                               var temp;
-                              if(isNaN(comData[i+y+(inicio*tiempo)])){
+                              if(isNaN(comData[i+y+(start*time)])){
                                   temp=0;
                               }else{
-                                  temp=comData[i+y+(inicio*tiempo)];
+                                  temp=comData[i+y+(start*time)];
                               }
-                              var dosisDiaSuma=dosisDia+temp;
-                              if(isNaN(dosisDiaSuma)){
+                              var totalDailyDose=dailyDose+temp;
+                              if(isNaN(totalDailyDose)){
     
                               }else{
-                                  dosisDiaSuma= +dosisDiaSuma.toFixed(2);
-                               comData[i+y+(inicio*tiempo)]=dosisDiaSuma;
+                                  totalDailyDose= +totalDailyDose.toFixed(2);
+                               comData[i+y+(start*time)]=totalDailyDose;
                               }
                               
                            }; 
                       } 
               break;
               case "56":
-                  for (var i = 0; i < (ejex.length-(inicio*tiempo)); i++) {
-                      var dosisDia= Math.exp(-ejex[i]*Math.log(2)/half)*dose*efect*Math.log(2)/half;
-                      dosisDia= +dosisDia.toFixed(2); 
-                          for (var y = 0; y < (diferenciaDias*tiempo) ; y+=(parseInt(schedule)*tiempo)) {
-                              if((i+y+(inicio*tiempo))>=ejex.length){
+                  for (var i = 0; i < (ajax.length-(start*time)); i++) {
+                      var dailyDose= Math.exp(-ajax[i]*Math.log(2)/half)*dose*efect*Math.log(2)/half;
+                      dailyDose= +dailyDose.toFixed(2); 
+                          for (var y = 0; y < (differenceInDays*time) ; y+=(parseInt(schedule)*time)) {
+                              if((i+y+(start*time))>=ajax.length){
                                   break;
                               }
                               var temp;
-                              if(isNaN(comData[i+y+(inicio*tiempo)])){
+                              if(isNaN(comData[i+y+(start*time)])){
                                   temp=0;
                               }else{
-                                  temp=comData[i+y+(inicio*tiempo)];
+                                  temp=comData[i+y+(start*time)];
                               }
-                              var dosisDiaSuma=dosisDia+temp;
-                              if(isNaN(dosisDiaSuma)){
+                              var totalDailyDose=dailyDose+temp;
+                              if(isNaN(totalDailyDose)){
     
                               }else{
-                                  dosisDiaSuma= +dosisDiaSuma.toFixed(2);
-                               comData[i+y+(inicio*tiempo)]=dosisDiaSuma;
+                                  totalDailyDose= +totalDailyDose.toFixed(2);
+                               comData[i+y+(start*time)]=totalDailyDose;
                               }
                               
                            }; 
                       } 
               break;
               case "mon":
-                 for (var i = 0; i < (ejex.length-(inicio*tiempo)); i++) {
-                      var dosisDia= Math.exp(-ejex[i]*Math.log(2)/half)*dose*efect*Math.log(2)/half;
-                      dosisDia= +dosisDia.toFixed(2); 
-                          for (var y = 0; y < (diferenciaDias*tiempo) ; y+=(7*tiempo)) {
-                              if((i+y+(inicio*tiempo))>=ejex.length){
+                 for (var i = 0; i < (ajax.length-(start*time)); i++) {
+                      var dailyDose= Math.exp(-ajax[i]*Math.log(2)/half)*dose*efect*Math.log(2)/half;
+                      dailyDose= +dailyDose.toFixed(2); 
+                          for (var y = 0; y < (differenceInDays*time) ; y+=(7*time)) {
+                              if((i+y+(start*time))>=ajax.length){
                                   break;
                               }
                                var temp;
-                              if(isNaN(comData[i+y+(inicio*tiempo)])){
+                              if(isNaN(comData[i+y+(start*time)])){
                                   temp=0;
                               }else{
-                                  temp=comData[i+y+(inicio*tiempo)];
+                                  temp=comData[i+y+(start*time)];
                               }
-                              var dosisDiaSuma=dosisDia+temp;
-                              if(isNaN(dosisDiaSuma)){
+                              var totalDailyDose=dailyDose+temp;
+                              if(isNaN(totalDailyDose)){
     
                               }else{
-                                  dosisDiaSuma= +dosisDiaSuma.toFixed(2);
-                               comData[i+y+(inicio*tiempo)]=dosisDiaSuma;
+                                  totalDailyDose= +totalDailyDose.toFixed(2);
+                               comData[i+y+(start*time)]=totalDailyDose;
                               }
                               
                            }; 
                       } 
               break;
               case "tue":
-                  for (var i = 0; i < (ejex.length-(inicio*tiempo)); i++) {
-                      var dosisDia= Math.exp(-ejex[i]*Math.log(2)/half)*dose*efect*Math.log(2)/half;
-                      dosisDia= +dosisDia.toFixed(2); 
-                          for (var y = 1*tiempo; y < (diferenciaDias*tiempo) ; y+=(7*tiempo)) {
-                              if((i+y+(inicio*tiempo))>=ejex.length){
+                  for (var i = 0; i < (ajax.length-(start*time)); i++) {
+                      var dailyDose= Math.exp(-ajax[i]*Math.log(2)/half)*dose*efect*Math.log(2)/half;
+                      dailyDose= +dailyDose.toFixed(2); 
+                          for (var y = 1*time; y < (differenceInDays*time) ; y+=(7*time)) {
+                              if((i+y+(start*time))>=ajax.length){
                                   break;
                               }
                                var temp;
-                              if(isNaN(comData[i+y+(inicio*tiempo)])){
+                              if(isNaN(comData[i+y+(start*time)])){
                                   temp=0;
                               }else{
-                                  temp=comData[i+y+(inicio*tiempo)];
+                                  temp=comData[i+y+(start*time)];
                               }
-                              var dosisDiaSuma=dosisDia+temp;
-                              if(isNaN(dosisDiaSuma)){
+                              var totalDailyDose=dailyDose+temp;
+                              if(isNaN(totalDailyDose)){
     
                               }else{
-                                  dosisDiaSuma= +dosisDiaSuma.toFixed(2);
-                               comData[i+y+(inicio*tiempo)]=dosisDiaSuma;
+                                  totalDailyDose= +totalDailyDose.toFixed(2);
+                               comData[i+y+(start*time)]=totalDailyDose;
                               }
                               
                            }; 
                       } 
               break;
               case "wed":
-                  for (var i = 0; i < (ejex.length-(inicio*tiempo)); i++) {
-                      var dosisDia= Math.exp(-ejex[i]*Math.log(2)/half)*dose*efect*Math.log(2)/half;
-                      dosisDia= +dosisDia.toFixed(2); 
-                          for (var y = 2*tiempo; y < (diferenciaDias*tiempo) ; y+=(7*tiempo)) {
-                              if((i+y+(inicio*tiempo))>=ejex.length){
+                  for (var i = 0; i < (ajax.length-(start*time)); i++) {
+                      var dailyDose= Math.exp(-ajax[i]*Math.log(2)/half)*dose*efect*Math.log(2)/half;
+                      dailyDose= +dailyDose.toFixed(2); 
+                          for (var y = 2*time; y < (differenceInDays*time) ; y+=(7*time)) {
+                              if((i+y+(start*time))>=ajax.length){
                                   break;
                               }
                                var temp;
-                              if(isNaN(comData[i+y+(inicio*tiempo)])){
+                              if(isNaN(comData[i+y+(start*time)])){
                                   temp=0;
                               }else{
-                                  temp=comData[i+y+(inicio*tiempo)];
+                                  temp=comData[i+y+(start*time)];
                               }
-                              var dosisDiaSuma=dosisDia+temp;
-                              if(isNaN(dosisDiaSuma)){
+                              var totalDailyDose=dailyDose+temp;
+                              if(isNaN(totalDailyDose)){
     
                               }else{
-                                  dosisDiaSuma= +dosisDiaSuma.toFixed(2);
-                               comData[i+y+(inicio*tiempo)]=dosisDiaSuma;
+                                  totalDailyDose= +totalDailyDose.toFixed(2);
+                               comData[i+y+(start*time)]=totalDailyDose;
                               }
                               
                            }; 
                       } 
               break;
               case "thu":
-                  for (var i = 0; i < (ejex.length-(inicio*tiempo)); i++) {
-                      var dosisDia= Math.exp(-ejex[i]*Math.log(2)/half)*dose*efect*Math.log(2)/half;
-                      dosisDia= +dosisDia.toFixed(2); 
-                          for (var y = 3*tiempo; y < (diferenciaDias*tiempo) ; y+=(7*tiempo)) {
-                              if((i+y+(inicio*tiempo))>=ejex.length){
+                  for (var i = 0; i < (ajax.length-(start*time)); i++) {
+                      var dailyDose= Math.exp(-ajax[i]*Math.log(2)/half)*dose*efect*Math.log(2)/half;
+                      dailyDose= +dailyDose.toFixed(2); 
+                          for (var y = 3*time; y < (differenceInDays*time) ; y+=(7*time)) {
+                              if((i+y+(start*time))>=ajax.length){
                                   break;
                               }
                                var temp;
-                              if(isNaN(comData[i+y+(inicio*tiempo)])){
+                              if(isNaN(comData[i+y+(start*time)])){
                                   temp=0;
                               }else{
-                                  temp=comData[i+y+(inicio*tiempo)];
+                                  temp=comData[i+y+(start*time)];
                               }
-                              var dosisDiaSuma=dosisDia+temp;
-                              if(isNaN(dosisDiaSuma)){
+                              var totalDailyDose=dailyDose+temp;
+                              if(isNaN(totalDailyDose)){
     
                               }else{
-                                  dosisDiaSuma= +dosisDiaSuma.toFixed(2);
-                               comData[i+y+(inicio*tiempo)]=dosisDiaSuma;
+                                  totalDailyDose= +totalDailyDose.toFixed(2);
+                               comData[i+y+(start*time)]=totalDailyDose;
                               }
                               
                            }; 
                       } 
               break;
               case "fri":
-                  for (var i = 0; i < (ejex.length-(inicio*tiempo)); i++) {
-                      var dosisDia= Math.exp(-ejex[i]*Math.log(2)/half)*dose*efect*Math.log(2)/half;
-                      dosisDia= +dosisDia.toFixed(2); 
-                          for (var y = 4*tiempo; y < (diferenciaDias*tiempo) ; y+=(7*tiempo)) {
-                              if((i+y+(inicio*tiempo))>=ejex.length){
+                  for (var i = 0; i < (ajax.length-(start*time)); i++) {
+                      var dailyDose= Math.exp(-ajax[i]*Math.log(2)/half)*dose*efect*Math.log(2)/half;
+                      dailyDose= +dailyDose.toFixed(2); 
+                          for (var y = 4*time; y < (differenceInDays*time) ; y+=(7*time)) {
+                              if((i+y+(start*time))>=ajax.length){
                                   break;
                               }
                                var temp;
-                              if(isNaN(comData[i+y+(inicio*tiempo)])){
+                              if(isNaN(comData[i+y+(start*time)])){
                                   temp=0;
                               }else{
-                                  temp=comData[i+y+(inicio*tiempo)];
+                                  temp=comData[i+y+(start*time)];
                               }
-                              var dosisDiaSuma=dosisDia+temp;
-                              if(isNaN(dosisDiaSuma)){
+                              var totalDailyDose=dailyDose+temp;
+                              if(isNaN(totalDailyDose)){
     
                               }else{
-                                  dosisDiaSuma= +dosisDiaSuma.toFixed(2);
-                               comData[i+y+(inicio*tiempo)]=dosisDiaSuma;
+                                  totalDailyDose= +totalDailyDose.toFixed(2);
+                               comData[i+y+(start*time)]=totalDailyDose;
                               }
                               
                            }; 
                       } 
               break;
               case "sat":
-                  for (var i = 0; i < (ejex.length-(inicio*tiempo)); i++) {
-                      var dosisDia= Math.exp(-ejex[i]*Math.log(2)/half)*dose*efect*Math.log(2)/half;
-                      dosisDia= +dosisDia.toFixed(2); 
-                          for (var y = 5*tiempo; y < (diferenciaDias*tiempo) ; y+=(7*tiempo)) {
-                              if((i+y+(inicio*tiempo))>=ejex.length){
+                  for (var i = 0; i < (ajax.length-(start*time)); i++) {
+                      var dailyDose= Math.exp(-ajax[i]*Math.log(2)/half)*dose*efect*Math.log(2)/half;
+                      dailyDose= +dailyDose.toFixed(2); 
+                          for (var y = 5*time; y < (differenceInDays*time) ; y+=(7*time)) {
+                              if((i+y+(start*time))>=ajax.length){
                                   break;
                               }
                                var temp;
-                              if(isNaN(comData[i+y+(inicio*tiempo)])){
+                              if(isNaN(comData[i+y+(start*time)])){
                                   temp=0;
                               }else{
-                                  temp=comData[i+y+(inicio*tiempo)];
+                                  temp=comData[i+y+(start*time)];
                               }
-                              var dosisDiaSuma=dosisDia+temp;
-                              if(isNaN(dosisDiaSuma)){
+                              var totalDailyDose=dailyDose+temp;
+                              if(isNaN(totalDailyDose)){
     
                               }else{
-                                  dosisDiaSuma= +dosisDiaSuma.toFixed(2);
-                               comData[i+y+(inicio*tiempo)]=dosisDiaSuma;
+                                  totalDailyDose= +totalDailyDose.toFixed(2);
+                               comData[i+y+(start*time)]=totalDailyDose;
                               }
                               
                            }; 
                       } 
               break;
               case "sun":
-                  for (var i = 0; i < (ejex.length-(inicio*tiempo)); i++) {
-                      var dosisDia= Math.exp(-ejex[i]*Math.log(2)/half)*dose*efect*Math.log(2)/half;
-                      dosisDia= +dosisDia.toFixed(2); 
-                          for (var y = 6*tiempo; y < (diferenciaDias*tiempo) ; y+=(7*tiempo)) {
-                              if((i+y+(inicio*tiempo))>=ejex.length){
+                  for (var i = 0; i < (ajax.length-(start*time)); i++) {
+                      var dailyDose= Math.exp(-ajax[i]*Math.log(2)/half)*dose*efect*Math.log(2)/half;
+                      dailyDose= +dailyDose.toFixed(2); 
+                          for (var y = 6*time; y < (differenceInDays*time) ; y+=(7*time)) {
+                              if((i+y+(start*time))>=ajax.length){
                                   break;
                               }
                                var temp;
-                              if(isNaN(comData[i+y+(inicio*tiempo)])){
+                              if(isNaN(comData[i+y+(start*time)])){
                                   temp=0;
                               }else{
-                                  temp=comData[i+y+(inicio*tiempo)];
+                                  temp=comData[i+y+(start*time)];
                               }
-                              var dosisDiaSuma=dosisDia+temp;
-                              if(isNaN(dosisDiaSuma)){
+                              var totalDailyDose=dailyDose+temp;
+                              if(isNaN(totalDailyDose)){
     
                               }else{
-                                  dosisDiaSuma= +dosisDiaSuma.toFixed(2);
-                               comData[i+y+(inicio*tiempo)]=dosisDiaSuma;
+                                  totalDailyDose= +totalDailyDose.toFixed(2);
+                               comData[i+y+(start*time)]=totalDailyDose;
                               }
                               
                            }; 
@@ -814,366 +814,366 @@ $("#plot-button").click(function () {
     
               comData=[];
     
-          for (var i = 0; i < ejex.length; i++) {
+          for (var i = 0; i < ajax.length; i++) {
           comData.push(0); 
            };
           //( Exp(-(dia  ) * LN( 2 ) / half )* dose * weigh * LN( 2 )/ E$4,2)
           switch(schedule) {
               case "0.5":
-                   for (var i = 0; i < (ejex.length-(inicio*tiempo)); i++) {
-                      var dosisDia= Math.exp(-ejex[i]*Math.log(2)/half)*dose*efect*Math.log(2)/half;
-                      dosisDia= +dosisDia.toFixed(2); 
-                          for (var y = 0; y < (diferenciaDias*tiempo) ; y+=(0.5*tiempo)) {
-                              if((i+y+(inicio*tiempo))>=ejex.length){
+                   for (var i = 0; i < (ajax.length-(start*time)); i++) {
+                      var dailyDose= Math.exp(-ajax[i]*Math.log(2)/half)*dose*efect*Math.log(2)/half;
+                      dailyDose= +dailyDose.toFixed(2); 
+                          for (var y = 0; y < (differenceInDays*time) ; y+=(0.5*time)) {
+                              if((i+y+(start*time))>=ajax.length){
                                   break;
                               }
-                               var dosisDiaSuma=dosisDia+comData[i+y+(inicio*tiempo)];
-                               dosisDiaSuma= +dosisDiaSuma.toFixed(2);
-                               comData[i+y+(inicio*tiempo)]=dosisDiaSuma;
+                               var totalDailyDose=dailyDose+comData[i+y+(start*time)];
+                               totalDailyDose= +totalDailyDose.toFixed(2);
+                               comData[i+y+(start*time)]=totalDailyDose;
                            }; 
                       }      
                break;
               case "1":
-                  for (var i = 0; i < (ejex.length-(inicio*tiempo)); i++) {
-                      var dosisDia= Math.exp(-ejex[i]*Math.log(2)/half)*dose*efect*Math.log(2)/half;
-                      dosisDia= +dosisDia.toFixed(2); 
-                          for (var y = 0; y < (diferenciaDias*tiempo) ; y+=(parseInt(schedule)*tiempo)) {
-                              if((i+y+(inicio*tiempo))>=ejex.length){
+                  for (var i = 0; i < (ajax.length-(start*time)); i++) {
+                      var dailyDose= Math.exp(-ajax[i]*Math.log(2)/half)*dose*efect*Math.log(2)/half;
+                      dailyDose= +dailyDose.toFixed(2); 
+                          for (var y = 0; y < (differenceInDays*time) ; y+=(parseInt(schedule)*time)) {
+                              if((i+y+(start*time))>=ajax.length){
                                   break;
                               }
-                               var dosisDiaSuma=dosisDia+comData[i+y+(inicio*tiempo)];
-                               dosisDiaSuma= +dosisDiaSuma.toFixed(2);
-                               comData[i+y+(inicio*tiempo)]=dosisDiaSuma;
+                               var totalDailyDose=dailyDose+comData[i+y+(start*time)];
+                               totalDailyDose= +totalDailyDose.toFixed(2);
+                               comData[i+y+(start*time)]=totalDailyDose;
                            }; 
                       } 
               break;
               case "2":
-                  for (var i = 0; i < (ejex.length-(inicio*tiempo)); i++) {
-                      var dosisDia= Math.exp(-ejex[i]*Math.log(2)/half)*dose*efect*Math.log(2)/half;
-                      dosisDia= +dosisDia.toFixed(2); 
-                          for (var y = 0; y < (diferenciaDias*tiempo) ; y+=(parseInt(schedule)*tiempo)) {
-                              if((i+y+(inicio*tiempo))>=ejex.length){
+                  for (var i = 0; i < (ajax.length-(start*time)); i++) {
+                      var dailyDose= Math.exp(-ajax[i]*Math.log(2)/half)*dose*efect*Math.log(2)/half;
+                      dailyDose= +dailyDose.toFixed(2); 
+                          for (var y = 0; y < (differenceInDays*time) ; y+=(parseInt(schedule)*time)) {
+                              if((i+y+(start*time))>=ajax.length){
                                   break;
                               }
-                               var dosisDiaSuma=dosisDia+comData[i+y+(inicio*tiempo)];
-                               dosisDiaSuma= +dosisDiaSuma.toFixed(2);
-                               comData[i+y+(inicio*tiempo)]=dosisDiaSuma;
+                               var totalDailyDose=dailyDose+comData[i+y+(start*time)];
+                               totalDailyDose= +totalDailyDose.toFixed(2);
+                               comData[i+y+(start*time)]=totalDailyDose;
                            }; 
                       } 
               break;
               case "3":
-                  for (var i = 0; i < (ejex.length-(inicio*tiempo)); i++) {
-                      var dosisDia= Math.exp(-ejex[i]*Math.log(2)/half)*dose*efect*Math.log(2)/half;
-                      dosisDia= +dosisDia.toFixed(2); 
-                          for (var y = 0; y < (diferenciaDias*tiempo) ; y+=(parseInt(schedule)*tiempo)) {
-                              if((i+y+(inicio*tiempo))>=ejex.length){
+                  for (var i = 0; i < (ajax.length-(start*time)); i++) {
+                      var dailyDose= Math.exp(-ajax[i]*Math.log(2)/half)*dose*efect*Math.log(2)/half;
+                      dailyDose= +dailyDose.toFixed(2); 
+                          for (var y = 0; y < (differenceInDays*time) ; y+=(parseInt(schedule)*time)) {
+                              if((i+y+(start*time))>=ajax.length){
                                   break;
                               }
-                               var dosisDiaSuma=dosisDia+comData[i+y+(inicio*tiempo)];
-                               dosisDiaSuma= +dosisDiaSuma.toFixed(2);
-                               comData[i+y+(inicio*tiempo)]=dosisDiaSuma;
+                               var totalDailyDose=dailyDose+comData[i+y+(start*time)];
+                               totalDailyDose= +totalDailyDose.toFixed(2);
+                               comData[i+y+(start*time)]=totalDailyDose;
                            }; 
                       } 
               break;
               case "3.5":
-                  for (var i = 0; i < (ejex.length-(inicio*tiempo)); i++) {
-                      var dosisDia= Math.exp(-ejex[i]*Math.log(2)/half)*dose*efect*Math.log(2)/half;
-                      dosisDia= +dosisDia.toFixed(2); 
-                          for (var y = 0; y < (diferenciaDias*tiempo) ; y+=(parseFloat(schedule)*tiempo)) {
-                              if((i+y+(inicio*tiempo))>=ejex.length){
+                  for (var i = 0; i < (ajax.length-(start*time)); i++) {
+                      var dailyDose= Math.exp(-ajax[i]*Math.log(2)/half)*dose*efect*Math.log(2)/half;
+                      dailyDose= +dailyDose.toFixed(2); 
+                          for (var y = 0; y < (differenceInDays*time) ; y+=(parseFloat(schedule)*time)) {
+                              if((i+y+(start*time))>=ajax.length){
                                   break;
                               }
                               var temp;
-                              if(isNaN(comData[i+y+(inicio*tiempo)])){
+                              if(isNaN(comData[i+y+(start*time)])){
                                   temp=0;
                               }else{
-                                  temp=comData[i+y+(inicio*tiempo)];
+                                  temp=comData[i+y+(start*time)];
                               }
-                              var dosisDiaSuma=dosisDia+temp;
-                              if(isNaN(dosisDiaSuma)){
+                              var totalDailyDose=dailyDose+temp;
+                              if(isNaN(totalDailyDose)){
     
                               }else{
-                                  dosisDiaSuma= +dosisDiaSuma.toFixed(2);
-                               comData[i+y+(inicio*tiempo)]=dosisDiaSuma;
+                                  totalDailyDose= +totalDailyDose.toFixed(2);
+                               comData[i+y+(start*time)]=totalDailyDose;
                               }
                               
                            }; 
                       } 
               break;
               case "4":
-                 for (var i = 0; i < (ejex.length-(inicio*tiempo)); i++) {
-                      var dosisDia= Math.exp(-ejex[i]*Math.log(2)/half)*dose*efect*Math.log(2)/half;
-                      dosisDia= +dosisDia.toFixed(2); 
-                          for (var y = 0; y < (diferenciaDias*tiempo) ; y+=(parseInt(schedule)*tiempo)) {
-                              if((i+y+(inicio*tiempo))>=ejex.length){
+                 for (var i = 0; i < (ajax.length-(start*time)); i++) {
+                      var dailyDose= Math.exp(-ajax[i]*Math.log(2)/half)*dose*efect*Math.log(2)/half;
+                      dailyDose= +dailyDose.toFixed(2); 
+                          for (var y = 0; y < (differenceInDays*time) ; y+=(parseInt(schedule)*time)) {
+                              if((i+y+(start*time))>=ajax.length){
                                   break;
                               }
-                               var dosisDiaSuma=dosisDia+comData[i+y+(inicio*tiempo)];
-                               dosisDiaSuma= +dosisDiaSuma.toFixed(2);
-                               comData[i+y+(inicio*tiempo)]=dosisDiaSuma;
+                               var totalDailyDose=dailyDose+comData[i+y+(start*time)];
+                               totalDailyDose= +totalDailyDose.toFixed(2);
+                               comData[i+y+(start*time)]=totalDailyDose;
                            }; 
                       } 
               break;
               case "5":
-                 for (var i = 0; i < (ejex.length-(inicio*tiempo)); i++) {
-                      var dosisDia= Math.exp(-ejex[i]*Math.log(2)/half)*dose*efect*Math.log(2)/half;
-                      dosisDia= +dosisDia.toFixed(2); 
-                          for (var y = 0; y < (diferenciaDias*tiempo) ; y+=(parseInt(schedule)*tiempo)) {
-                              if((i+y+(inicio*tiempo))>=ejex.length){
+                 for (var i = 0; i < (ajax.length-(start*time)); i++) {
+                      var dailyDose= Math.exp(-ajax[i]*Math.log(2)/half)*dose*efect*Math.log(2)/half;
+                      dailyDose= +dailyDose.toFixed(2); 
+                          for (var y = 0; y < (differenceInDays*time) ; y+=(parseInt(schedule)*time)) {
+                              if((i+y+(start*time))>=ajax.length){
                                   break;
                               }
-                               var dosisDiaSuma=dosisDia+comData[i+y+(inicio*tiempo)];
-                               dosisDiaSuma= +dosisDiaSuma.toFixed(2);
-                               comData[i+y+(inicio*tiempo)]=dosisDiaSuma;
+                               var totalDailyDose=dailyDose+comData[i+y+(start*time)];
+                               totalDailyDose= +totalDailyDose.toFixed(2);
+                               comData[i+y+(start*time)]=totalDailyDose;
                            }; 
                       } 
               break;
               case "6":
-                 for (var i = 0; i < (ejex.length-(inicio*tiempo)); i++) {
-                      var dosisDia= Math.exp(-ejex[i]*Math.log(2)/half)*dose*efect*Math.log(2)/half;
-                      dosisDia= +dosisDia.toFixed(2); 
-                          for (var y = 0; y < (diferenciaDias*tiempo) ; y+=(parseInt(schedule)*tiempo)) {
-                              if((i+y+(inicio*tiempo))>=ejex.length){
+                 for (var i = 0; i < (ajax.length-(start*time)); i++) {
+                      var dailyDose= Math.exp(-ajax[i]*Math.log(2)/half)*dose*efect*Math.log(2)/half;
+                      dailyDose= +dailyDose.toFixed(2); 
+                          for (var y = 0; y < (differenceInDays*time) ; y+=(parseInt(schedule)*time)) {
+                              if((i+y+(start*time))>=ajax.length){
                                   break;
                               }
-                               var dosisDiaSuma=dosisDia+comData[i+y+(inicio*tiempo)];
-                               dosisDiaSuma= +dosisDiaSuma.toFixed(2);
-                               comData[i+y+(inicio*tiempo)]=dosisDiaSuma;
+                               var totalDailyDose=dailyDose+comData[i+y+(start*time)];
+                               totalDailyDose= +totalDailyDose.toFixed(2);
+                               comData[i+y+(start*time)]=totalDailyDose;
                            }; 
                       } 
               break;
               case "7":
-                  for (var i = 0; i < (ejex.length-(inicio*tiempo)); i++) {
-                      var dosisDia= Math.exp(-ejex[i]*Math.log(2)/half)*dose*efect*Math.log(2)/half;
-                      dosisDia= +dosisDia.toFixed(2); 
-                          for (var y = 0; y < (diferenciaDias*tiempo) ; y+=(parseInt(schedule)*tiempo)) {
-                              if((i+y+(inicio*tiempo))>=ejex.length){
+                  for (var i = 0; i < (ajax.length-(start*time)); i++) {
+                      var dailyDose= Math.exp(-ajax[i]*Math.log(2)/half)*dose*efect*Math.log(2)/half;
+                      dailyDose= +dailyDose.toFixed(2); 
+                          for (var y = 0; y < (differenceInDays*time) ; y+=(parseInt(schedule)*time)) {
+                              if((i+y+(start*time))>=ajax.length){
                                   break;
                               }
-                               var dosisDiaSuma=dosisDia+comData[i+y+(inicio*tiempo)];
-                               dosisDiaSuma= +dosisDiaSuma.toFixed(2);
-                               comData[i+y+(inicio*tiempo)]=dosisDiaSuma;
+                               var totalDailyDose=dailyDose+comData[i+y+(start*time)];
+                               totalDailyDose= +totalDailyDose.toFixed(2);
+                               comData[i+y+(start*time)]=totalDailyDose;
                            }; 
                       } 
               break;
               case "10":
-                 for (var i = 0; i < (ejex.length-(inicio*tiempo)); i++) {
-                      var dosisDia= Math.exp(-ejex[i]*Math.log(2)/half)*dose*efect*Math.log(2)/half;
-                      dosisDia= +dosisDia.toFixed(2); 
-                          for (var y = 0; y < (diferenciaDias*tiempo) ; y+=(parseInt(schedule)*tiempo)) {
-                              if((i+y+(inicio*tiempo))>=ejex.length){
+                 for (var i = 0; i < (ajax.length-(start*time)); i++) {
+                      var dailyDose= Math.exp(-ajax[i]*Math.log(2)/half)*dose*efect*Math.log(2)/half;
+                      dailyDose= +dailyDose.toFixed(2); 
+                          for (var y = 0; y < (differenceInDays*time) ; y+=(parseInt(schedule)*time)) {
+                              if((i+y+(start*time))>=ajax.length){
                                   break;
                               }
                                var temp;
-                              if(isNaN(comData[i+y+(inicio*tiempo)])){
+                              if(isNaN(comData[i+y+(start*time)])){
                                   temp=0;
                               }else{
-                                  temp=comData[i+y+(inicio*tiempo)];
+                                  temp=comData[i+y+(start*time)];
                               }
-                              var dosisDiaSuma=dosisDia+temp;
-                              if(isNaN(dosisDiaSuma)){
+                              var totalDailyDose=dailyDose+temp;
+                              if(isNaN(totalDailyDose)){
     
                               }else{
-                                  dosisDiaSuma= +dosisDiaSuma.toFixed(2);
-                               comData[i+y+(inicio*tiempo)]=dosisDiaSuma;
+                                  totalDailyDose= +totalDailyDose.toFixed(2);
+                               comData[i+y+(start*time)]=totalDailyDose;
                               }
                               
                            }; 
                       } 
               break;
               case "14":
-                 for (var i = 0; i < (ejex.length-(inicio*tiempo)); i++) {
-                      var dosisDia= Math.exp(-ejex[i]*Math.log(2)/half)*dose*efect*Math.log(2)/half;
-                      dosisDia= +dosisDia.toFixed(2); 
-                          for (var y = 0; y < (diferenciaDias*tiempo) ; y+=(parseInt(schedule)*tiempo)) {
-                              if((i+y+(inicio*tiempo))>=ejex.length){
+                 for (var i = 0; i < (ajax.length-(start*time)); i++) {
+                      var dailyDose= Math.exp(-ajax[i]*Math.log(2)/half)*dose*efect*Math.log(2)/half;
+                      dailyDose= +dailyDose.toFixed(2); 
+                          for (var y = 0; y < (differenceInDays*time) ; y+=(parseInt(schedule)*time)) {
+                              if((i+y+(start*time))>=ajax.length){
                                   break;
                               }
-                               var dosisDiaSuma=dosisDia+comData[i+y+(inicio*tiempo)];
-                               dosisDiaSuma= +dosisDiaSuma.toFixed(2);
-                               comData[i+y+(inicio*tiempo)]=dosisDiaSuma;
+                               var totalDailyDose=dailyDose+comData[i+y+(start*time)];
+                               totalDailyDose= +totalDailyDose.toFixed(2);
+                               comData[i+y+(start*time)]=totalDailyDose;
                            }; 
                       } 
               break;
               case "21":
-                  for (var i = 0; i < (ejex.length-(inicio*tiempo)); i++) {
-                      var dosisDia= Math.exp(-ejex[i]*Math.log(2)/half)*dose*efect*Math.log(2)/half;
-                      dosisDia= +dosisDia.toFixed(2); 
-                          for (var y = 0; y < (diferenciaDias*tiempo) ; y+=(parseInt(schedule)*tiempo)) {
-                              if((i+y+(inicio*tiempo))>=ejex.length){
+                  for (var i = 0; i < (ajax.length-(start*time)); i++) {
+                      var dailyDose= Math.exp(-ajax[i]*Math.log(2)/half)*dose*efect*Math.log(2)/half;
+                      dailyDose= +dailyDose.toFixed(2); 
+                          for (var y = 0; y < (differenceInDays*time) ; y+=(parseInt(schedule)*time)) {
+                              if((i+y+(start*time))>=ajax.length){
                                   break;
                               }
-                               var dosisDiaSuma=dosisDia+comData[i+y+(inicio*tiempo)];
-                               dosisDiaSuma= +dosisDiaSuma.toFixed(2);
-                               comData[i+y+(inicio*tiempo)]=dosisDiaSuma;
+                               var totalDailyDose=dailyDose+comData[i+y+(start*time)];
+                               totalDailyDose= +totalDailyDose.toFixed(2);
+                               comData[i+y+(start*time)]=totalDailyDose;
                            }; 
                       } 
               break;
               case "28":
-                  for (var i = 0; i < (ejex.length-(inicio*tiempo)); i++) {
-                      var dosisDia= Math.exp(-ejex[i]*Math.log(2)/half)*dose*efect*Math.log(2)/half;
-                      dosisDia= +dosisDia.toFixed(2); 
-                          for (var y = 0; y < (diferenciaDias*tiempo) ; y+=(parseInt(schedule)*tiempo)) {
-                              if((i+y+(inicio*tiempo))>=ejex.length){
+                  for (var i = 0; i < (ajax.length-(start*time)); i++) {
+                      var dailyDose= Math.exp(-ajax[i]*Math.log(2)/half)*dose*efect*Math.log(2)/half;
+                      dailyDose= +dailyDose.toFixed(2); 
+                          for (var y = 0; y < (differenceInDays*time) ; y+=(parseInt(schedule)*time)) {
+                              if((i+y+(start*time))>=ajax.length){
                                   break;
                               }
-                               var dosisDiaSuma=dosisDia+comData[i+y+(inicio*tiempo)];
-                               dosisDiaSuma= +dosisDiaSuma.toFixed(2);
-                               comData[i+y+(inicio*tiempo)]=dosisDiaSuma;
+                               var totalDailyDose=dailyDose+comData[i+y+(start*time)];
+                               totalDailyDose= +totalDailyDose.toFixed(2);
+                               comData[i+y+(start*time)]=totalDailyDose;
                            }; 
                       } 
               break;
               case "35":
-                  for (var i = 0; i < (ejex.length-(inicio*tiempo)); i++) {
-                      var dosisDia= Math.exp(-ejex[i]*Math.log(2)/half)*dose*efect*Math.log(2)/half;
-                      dosisDia= +dosisDia.toFixed(2); 
-                          for (var y = 0; y < (diferenciaDias*tiempo) ; y+=(parseInt(schedule)*tiempo)) {
-                              if((i+y+(inicio*tiempo))>=ejex.length){
+                  for (var i = 0; i < (ajax.length-(start*time)); i++) {
+                      var dailyDose= Math.exp(-ajax[i]*Math.log(2)/half)*dose*efect*Math.log(2)/half;
+                      dailyDose= +dailyDose.toFixed(2); 
+                          for (var y = 0; y < (differenceInDays*time) ; y+=(parseInt(schedule)*time)) {
+                              if((i+y+(start*time))>=ajax.length){
                                   break;
                               }
-                               var dosisDiaSuma=dosisDia+comData[i+y+(inicio*tiempo)];
-                               dosisDiaSuma= +dosisDiaSuma.toFixed(2);
-                               comData[i+y+(inicio*tiempo)]=dosisDiaSuma;
+                               var totalDailyDose=dailyDose+comData[i+y+(start*time)];
+                               totalDailyDose= +totalDailyDose.toFixed(2);
+                               comData[i+y+(start*time)]=totalDailyDose;
                            }; 
                       } 
               break;
               case "42":
-                  for (var i = 0; i < (ejex.length-(inicio*tiempo)); i++) {
-                      var dosisDia= Math.exp(-ejex[i]*Math.log(2)/half)*dose*efect*Math.log(2)/half;
-                      dosisDia= +dosisDia.toFixed(2); 
-                          for (var y = 0; y < (diferenciaDias*tiempo) ; y+=(parseInt(schedule)*tiempo)) {
-                              if((i+y+(inicio*tiempo))>=ejex.length){
+                  for (var i = 0; i < (ajax.length-(start*time)); i++) {
+                      var dailyDose= Math.exp(-ajax[i]*Math.log(2)/half)*dose*efect*Math.log(2)/half;
+                      dailyDose= +dailyDose.toFixed(2); 
+                          for (var y = 0; y < (differenceInDays*time) ; y+=(parseInt(schedule)*time)) {
+                              if((i+y+(start*time))>=ajax.length){
                                   break;
                               }
-                               var dosisDiaSuma=dosisDia+comData[i+y+(inicio*tiempo)];
-                               dosisDiaSuma= +dosisDiaSuma.toFixed(2);
-                               comData[i+y+(inicio*tiempo)]=dosisDiaSuma;
+                               var totalDailyDose=dailyDose+comData[i+y+(start*time)];
+                               totalDailyDose= +totalDailyDose.toFixed(2);
+                               comData[i+y+(start*time)]=totalDailyDose;
                            }; 
                       } 
               break;
               case "49":
-                  for (var i = 0; i < (ejex.length-(inicio*tiempo)); i++) {
-                      var dosisDia= Math.exp(-ejex[i]*Math.log(2)/half)*dose*efect*Math.log(2)/half;
-                      dosisDia= +dosisDia.toFixed(2); 
-                          for (var y = 0; y < (diferenciaDias*tiempo) ; y+=(parseInt(schedule)*tiempo)) {
-                              if((i+y+(inicio*tiempo))>=ejex.length){
+                  for (var i = 0; i < (ajax.length-(start*time)); i++) {
+                      var dailyDose= Math.exp(-ajax[i]*Math.log(2)/half)*dose*efect*Math.log(2)/half;
+                      dailyDose= +dailyDose.toFixed(2); 
+                          for (var y = 0; y < (differenceInDays*time) ; y+=(parseInt(schedule)*time)) {
+                              if((i+y+(start*time))>=ajax.length){
                                   break;
                               }
-                               var dosisDiaSuma=dosisDia+comData[i+y+(inicio*tiempo)];
-                               dosisDiaSuma= +dosisDiaSuma.toFixed(2);
-                               comData[i+y+(inicio*tiempo)]=dosisDiaSuma;
+                               var totalDailyDose=dailyDose+comData[i+y+(start*time)];
+                               totalDailyDose= +totalDailyDose.toFixed(2);
+                               comData[i+y+(start*time)]=totalDailyDose;
                            }; 
                       } 
               break;
               case "56":
-                  for (var i = 0; i < (ejex.length-(inicio*tiempo)); i++) {
-                      var dosisDia= Math.exp(-ejex[i]*Math.log(2)/half)*dose*efect*Math.log(2)/half;
-                      dosisDia= +dosisDia.toFixed(2); 
-                          for (var y = 0; y < (diferenciaDias*tiempo) ; y+=(parseInt(schedule)*tiempo)) {
-                              if((i+y+(inicio*tiempo))>=ejex.length){
+                  for (var i = 0; i < (ajax.length-(start*time)); i++) {
+                      var dailyDose= Math.exp(-ajax[i]*Math.log(2)/half)*dose*efect*Math.log(2)/half;
+                      dailyDose= +dailyDose.toFixed(2); 
+                          for (var y = 0; y < (differenceInDays*time) ; y+=(parseInt(schedule)*time)) {
+                              if((i+y+(start*time))>=ajax.length){
                                   break;
                               }
-                               var dosisDiaSuma=dosisDia+comData[i+y+(inicio*tiempo)];
-                               dosisDiaSuma= +dosisDiaSuma.toFixed(2);
-                               comData[i+y+(inicio*tiempo)]=dosisDiaSuma;
+                               var totalDailyDose=dailyDose+comData[i+y+(start*time)];
+                               totalDailyDose= +totalDailyDose.toFixed(2);
+                               comData[i+y+(start*time)]=totalDailyDose;
                            }; 
                       } 
               break;
               case "mon":
-                 for (var i = 0; i < (ejex.length-(inicio*tiempo)); i++) {
-                      var dosisDia= Math.exp(-ejex[i]*Math.log(2)/half)*dose*efect*Math.log(2)/half;
-                      dosisDia= +dosisDia.toFixed(2); 
-                          for (var y = 0; y < (diferenciaDias*tiempo) ; y+=(7*tiempo)) {
-                              if((i+y+(inicio*tiempo))>=ejex.length){
+                 for (var i = 0; i < (ajax.length-(start*time)); i++) {
+                      var dailyDose= Math.exp(-ajax[i]*Math.log(2)/half)*dose*efect*Math.log(2)/half;
+                      dailyDose= +dailyDose.toFixed(2); 
+                          for (var y = 0; y < (differenceInDays*time) ; y+=(7*time)) {
+                              if((i+y+(start*time))>=ajax.length){
                                   break;
                               }
-                               var dosisDiaSuma=dosisDia+comData[i+y+(inicio*tiempo)];
-                               dosisDiaSuma= +dosisDiaSuma.toFixed(2);
-                               comData[i+y+(inicio*tiempo)]=dosisDiaSuma;
+                               var totalDailyDose=dailyDose+comData[i+y+(start*time)];
+                               totalDailyDose= +totalDailyDose.toFixed(2);
+                               comData[i+y+(start*time)]=totalDailyDose;
                            }; 
                       } 
               break;
               case "tue":
-                 for (var i = 0; i < (ejex.length-(inicio*tiempo)); i++) {
-                      var dosisDia= Math.exp(-ejex[i]*Math.log(2)/half)*dose*efect*Math.log(2)/half;
-                      dosisDia= +dosisDia.toFixed(2); 
-                          for (var y = 1*tiempo; y < (diferenciaDias*tiempo) ; y+=(7*tiempo)) {
-                              if((i+y+(inicio*tiempo))>=ejex.length){
+                 for (var i = 0; i < (ajax.length-(start*time)); i++) {
+                      var dailyDose= Math.exp(-ajax[i]*Math.log(2)/half)*dose*efect*Math.log(2)/half;
+                      dailyDose= +dailyDose.toFixed(2); 
+                          for (var y = 1*time; y < (differenceInDays*time) ; y+=(7*time)) {
+                              if((i+y+(start*time))>=ajax.length){
                                   break;
                               }
-                               var dosisDiaSuma=dosisDia+comData[i+y+(inicio*tiempo)];
-                               dosisDiaSuma= +dosisDiaSuma.toFixed(2);
-                               comData[i+y+(inicio*tiempo)]=dosisDiaSuma;
+                               var totalDailyDose=dailyDose+comData[i+y+(start*time)];
+                               totalDailyDose= +totalDailyDose.toFixed(2);
+                               comData[i+y+(start*time)]=totalDailyDose;
                            }; 
                       } 
               break;
               case "wed":
-                 for (var i = 0; i < (ejex.length-(inicio*tiempo)); i++) {
-                      var dosisDia= Math.exp(-ejex[i]*Math.log(2)/half)*dose*efect*Math.log(2)/half;
-                      dosisDia= +dosisDia.toFixed(2); 
-                          for (var y = 2*tiempo; y < (diferenciaDias*tiempo) ; y+=(7*tiempo)) {
-                              if((i+y+(inicio*tiempo))>=ejex.length){
+                 for (var i = 0; i < (ajax.length-(start*time)); i++) {
+                      var dailyDose= Math.exp(-ajax[i]*Math.log(2)/half)*dose*efect*Math.log(2)/half;
+                      dailyDose= +dailyDose.toFixed(2); 
+                          for (var y = 2*time; y < (differenceInDays*time) ; y+=(7*time)) {
+                              if((i+y+(start*time))>=ajax.length){
                                   break;
                               }
-                               var dosisDiaSuma=dosisDia+comData[i+y+(inicio*tiempo)];
-                               dosisDiaSuma= +dosisDiaSuma.toFixed(2);
-                               comData[i+y+(inicio*tiempo)]=dosisDiaSuma;
+                               var totalDailyDose=dailyDose+comData[i+y+(start*time)];
+                               totalDailyDose= +totalDailyDose.toFixed(2);
+                               comData[i+y+(start*time)]=totalDailyDose;
                            }; 
                       } 
               break;
               case "thu":
-                  for (var i = 0; i < (ejex.length-(inicio*tiempo)); i++) {
-                      var dosisDia= Math.exp(-ejex[i]*Math.log(2)/half)*dose*efect*Math.log(2)/half;
-                      dosisDia= +dosisDia.toFixed(2); 
-                          for (var y = 3*tiempo; y < (diferenciaDias*tiempo) ; y+=(7*tiempo)) {
-                              if((i+y+(inicio*tiempo))>=ejex.length){
+                  for (var i = 0; i < (ajax.length-(start*time)); i++) {
+                      var dailyDose= Math.exp(-ajax[i]*Math.log(2)/half)*dose*efect*Math.log(2)/half;
+                      dailyDose= +dailyDose.toFixed(2); 
+                          for (var y = 3*time; y < (differenceInDays*time) ; y+=(7*time)) {
+                              if((i+y+(start*time))>=ajax.length){
                                   break;
                               }
-                               var dosisDiaSuma=dosisDia+comData[i+y+(inicio*tiempo)];
-                               dosisDiaSuma= +dosisDiaSuma.toFixed(2);
-                               comData[i+y+(inicio*tiempo)]=dosisDiaSuma;
+                               var totalDailyDose=dailyDose+comData[i+y+(start*time)];
+                               totalDailyDose= +totalDailyDose.toFixed(2);
+                               comData[i+y+(start*time)]=totalDailyDose;
                            }; 
                       } 
               break;
               case "fri":
-                  for (var i = 0; i < (ejex.length-(inicio*tiempo)); i++) {
-                      var dosisDia= Math.exp(-ejex[i]*Math.log(2)/half)*dose*efect*Math.log(2)/half;
-                      dosisDia= +dosisDia.toFixed(2); 
-                          for (var y = 4*tiempo; y < (diferenciaDias*tiempo) ; y+=(7*tiempo)) {
-                              if((i+y+(inicio*tiempo))>=ejex.length){
+                  for (var i = 0; i < (ajax.length-(start*time)); i++) {
+                      var dailyDose= Math.exp(-ajax[i]*Math.log(2)/half)*dose*efect*Math.log(2)/half;
+                      dailyDose= +dailyDose.toFixed(2); 
+                          for (var y = 4*time; y < (differenceInDays*time) ; y+=(7*time)) {
+                              if((i+y+(start*time))>=ajax.length){
                                   break;
                               }
-                               var dosisDiaSuma=dosisDia+comData[i+y+(inicio*tiempo)];
-                               dosisDiaSuma= +dosisDiaSuma.toFixed(2);
-                               comData[i+y+(inicio*tiempo)]=dosisDiaSuma;
+                               var totalDailyDose=dailyDose+comData[i+y+(start*time)];
+                               totalDailyDose= +totalDailyDose.toFixed(2);
+                               comData[i+y+(start*time)]=totalDailyDose;
                            }; 
                       } 
               break;
               case "sat":
-                 for (var i = 0; i < (ejex.length-(inicio*tiempo)); i++) {
-                      var dosisDia= Math.exp(-ejex[i]*Math.log(2)/half)*dose*efect*Math.log(2)/half;
-                      dosisDia= +dosisDia.toFixed(2); 
-                          for (var y = 5*tiempo; y < (diferenciaDias*tiempo) ; y+=(7*tiempo)) {
-                              if((i+y+(inicio*tiempo))>=ejex.length){
+                 for (var i = 0; i < (ajax.length-(start*time)); i++) {
+                      var dailyDose= Math.exp(-ajax[i]*Math.log(2)/half)*dose*efect*Math.log(2)/half;
+                      dailyDose= +dailyDose.toFixed(2); 
+                          for (var y = 5*time; y < (differenceInDays*time) ; y+=(7*time)) {
+                              if((i+y+(start*time))>=ajax.length){
                                   break;
                               }
-                               var dosisDiaSuma=dosisDia+comData[i+y+(inicio*tiempo)];
-                               dosisDiaSuma= +dosisDiaSuma.toFixed(2);
-                               comData[i+y+(inicio*tiempo)]=dosisDiaSuma;
+                               var totalDailyDose=dailyDose+comData[i+y+(start*time)];
+                               totalDailyDose= +totalDailyDose.toFixed(2);
+                               comData[i+y+(start*time)]=totalDailyDose;
                            }; 
                       } 
               break;
               case "sun":
-                  for (var i = 0; i < (ejex.length-(inicio*2)); i++) {
-                      var dosisDia= Math.exp(-ejex[i]*Math.log(2)/half)*dose*efect*Math.log(2)/half;
-                      dosisDia= +dosisDia.toFixed(2); 
-                          for (var y = 6*tiempo; y < (diferenciaDias*2) ; y+=(7*tiempo) ){
-                              if((i+y+(inicio*2))>=ejex.length){
+                  for (var i = 0; i < (ajax.length-(start*2)); i++) {
+                      var dailyDose= Math.exp(-ajax[i]*Math.log(2)/half)*dose*efect*Math.log(2)/half;
+                      dailyDose= +dailyDose.toFixed(2); 
+                          for (var y = 6*time; y < (differenceInDays*2) ; y+=(7*time) ){
+                              if((i+y+(start*2))>=ajax.length){
                                   break;
                               }
-                               var dosisDiaSuma=dosisDia+comData[i+y+(inicio*2)];
-                               dosisDiaSuma= +dosisDiaSuma.toFixed(2);
-                               comData[i+y+(inicio*2)]=dosisDiaSuma;
+                               var totalDailyDose=dailyDose+comData[i+y+(start*2)];
+                               totalDailyDose= +totalDailyDose.toFixed(2);
+                               comData[i+y+(start*2)]=totalDailyDose;
                            }; 
                       }
               break;

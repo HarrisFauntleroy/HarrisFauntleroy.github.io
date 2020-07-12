@@ -291,12 +291,16 @@ nav a {
   color: var(--element3);
 }
 
-/* Links on links page*/
+/* Links on sub pages */
 .links-content a { line-height: 1.5em; text-decoration: none; color: var(--element3);}
 .links-content a:visited { text-decoration: none; color:var(--secondary);}
 .links-content a:hover { text-decoration: none; color:var(--primary); }
 .links-content a:focus { text-decoration: none; color:var(--primary); }
 .links-content a:hover, a:active { text-decoration: none; color:var(--primary) }
+
+.steroid-calc-content a { text-decoration: none; color: var(--element3);}
+.steroid-calc-content a:hover { text-decoration: none; color:var(--primary); }
+.steroid-calc-content a:focus { text-decoration: none; color:var(--primary); }
 
 /* -------------------------------------------------------------------------------------- */
 /* -------------------------------------------------------------------------------------- */
@@ -387,15 +391,14 @@ footer a {
 }
 
 /* Steroid-calc */
-.subgrid2 {
+.steroid-calc-content {
   display: grid;
   grid-template-columns: auto;
-  grid-template-rows: auto auto auto auto auto;
-  grid-gap: 0.5rem;
-  grid-template-areas: "1"
-                       "2"
-                       "3"
-                       "4";
+  grid-template-rows: auto auto 1fr auto;
+  grid-template-areas: "sca"
+                       "scb"
+                       "scc"
+                       "scd";
 }
 
 /* -------------------------------------------------------------------------------------- */
@@ -459,7 +462,7 @@ input[type=submit]:hover {
   color: var(--element3);
 }
 
-.version {
+.contact-version {
   display: grid;
   grid-area: a2;
   background-color: var(--surface2);
@@ -471,6 +474,40 @@ input[type=submit]:hover {
 /* -------------------------------------------------------------------------------------- */
 
 /* STEROID-CALC */
+/* Places it in the body of the subgrid */
+.steroid-calc-content {
+  grid-area: body;
+}
+
+.steroid-calc-header {
+  display: grid;
+  grid-area: sca;
+  padding-bottom: 1em;
+}
+
+.steroid-calc-version {
+  display: grid;
+  grid-area: sca;
+  background-color: var(--surface2);
+  color: var(--element3);
+  justify-self: right;
+}
+
+.steroid-calc-inputs {
+    display: grid;
+    grid-area: scb;
+}
+
+.graph-div {
+  display: grid;
+  grid-area: scc;
+}
+
+.steroid-calc-about {
+  display: grid;
+  grid-area: scd;
+}
+
 .small-12 {
   position: relative;
   width: auto;
@@ -685,21 +722,4 @@ label small {
 
 select, .dose{
   width: 1fr;
-}
-
-/* CSS GRIDS FOR STEROID-CALC */
-.steroid-calc-content {
-  grid-area: 1;
-}
-
-.inputs1 {
-  grid-area: 2;
-}
-
-.inputs2 {
-  grid-area: 3;
-}
-
-.graph-div {
-  grid-area: 4;
 }
