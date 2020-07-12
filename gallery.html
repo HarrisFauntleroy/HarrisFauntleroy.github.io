@@ -49,23 +49,27 @@
 		</header>
 
 <! QUICKNAV >	
-		<div id="quicknav-placeholder"></div>
+		<div id="nav">
+		</div>
+
 		<script>
-			$.get("quicknav.html", function(data){
-				$("#quicknav-placeholder").replaceWith(data);
+			$(function(){
+			  $("#nav").load("quicknav.html");
 			});
-		</script> 
+		</script>
 
 <! SUB GRID 1 >
 		<div class="subgrid">
 
 <! SIDEBAR >		  
-		<div id="sidenav-placeholder"></div>
+		<div id="sidebar-left">
+		</div>
+
 		<script>
-			$.get("sidenav.html", function(data){
-				$("#sidenav-placeholder").replaceWith(data);
+			$(function(){
+			  $("#sidebar-left").load("sidenav.html");
 			});
-		</script> 
+		</script>
 
 <! MAIN BODY >
 		<div class="gallery-content">

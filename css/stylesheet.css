@@ -168,8 +168,11 @@ header {
 /* -------------------------------------------------------------------------------------- */
 
 /* HORIZONTAL NAVIGATION */
-nav {
+#nav {
   grid-area: navbar;
+}
+
+nav {
   background-color: var(--surface2);
   color: var(--element1);
   border-radius: 1em;
@@ -202,14 +205,17 @@ nav a {
 /* -------------------------------------------------------------------------------------- */
 
 /* SIDE NAVIGATION */
-.sidebar-left {
+#sidebar-left, .sidebar-left {
   grid-area: side;
   background-color: var(--surface2);
   color: var(--element1);
   border-radius: 1em;
   text-align: left;
-  padding: 1em;
   user-select: none;
+}
+
+.sidebar-left {
+  padding: 1em;
 }
 
 .sidebar-left ul {
