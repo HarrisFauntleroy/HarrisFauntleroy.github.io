@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Harris Fauntleroy</title>
+	<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 	<link rel="stylesheet" type="text/css" href="/css/stylesheet.css">
 	<link rel="stylesheet" type="text/css" href="/css/font-awesome-4.7.0/css/font-awesome.css">
 	<link rel="apple-touch-icon" sizes="57x57" href="icon/apple-icon-57x57.png">
@@ -48,55 +49,23 @@
 		</header>
 
 <! QUICKNAV >	
-	  	<nav>
-			<ul>
-				<li><a href="/index.html">Home</a></li>
-				<li><a href="/aboutme.html">About me</a></li>		
-				<li><a href="/contact.html">Contact</a></li>
-			</ul>
-		</nav>
+		<div id="quicknav-placeholder"></div>
+		<script>
+			$.get("quicknav.html", function(data){
+				$("#quicknav-placeholder").replaceWith(data);
+			});
+		</script> 
 
 <! SUB GRID 1 >
 		<div class="subgrid">
 
 <! SIDEBAR >		  
-		<aside class="sidebar-left">
-			<h3 class="desktop-nav-title" style="text-align: center;">Navigation <i class="fa fa-compass fa-spin" aria-hidden="true"></i></h3>
-			<span class="mobile-nav-btn"><h3 style="text-align: center;">Navigation <i class="fa fa-bars" aria-hidden="true"></i></h3></span>
-				<ul class="side-nav-content">
-					<li><span class="dropdown-btn">Web Development</span>
-						<ul class="dropdown-content">
-							<a href="https://harrisfauntleroy.com/index.html">Personal website</a>
-						</ul>
-					</li>
-					<li><span class="dropdown-btn">Computer Science</span>
-						<ul class="dropdown-content">
-							<a href="#">Check back later!</a>
-						</ul>
-					</li>
-					<li><span class="dropdown-btn">Sports Science</span>
-						<ul class="dropdown-content">
-							<a href="/steroid-calc.html">Steroid-Calc</a>
-						</ul>
-					</li>
-					<li><span class="dropdown-btn">Personal Finance</span>
-						<ul class="dropdown-content">
-							<a href="#">Check back later!</a>
-						</ul>
-					</li>
-					<li><span class="dropdown-btn">Hobbies</span>
-						<ul class="dropdown-content">
-							<a href="#">Check back later!</a>
-						</ul>
-					</li>
-					<li class="">
-						<a href="/gallery.html"><i class="fa fa-link" aria-hidden="true"></i> Gallery</a>
-					</li>
-					<li class="">
-						<a href="/links.html"><i class="fa fa-link" aria-hidden="true"></i> Links</a>						
-					</li>					
-				</ul>
-		</aside>
+		<div id="sidenav-placeholder"></div>
+		<script>
+			$.get("sidenav.html", function(data){
+				$("#sidenav-placeholder").replaceWith(data);
+			});
+		</script> 
 
 <! MAIN BODY >
 		<div class="steroid-calc-content">
@@ -291,11 +260,11 @@
 <! MAIN GRID END >
 	</div>
 
-<! JAVASCRIPT >
+<! JAVASCRIPT >	
 	<script type="text/javascript" src="./js/dropdown.js"></script>
 	<script type="text/javascript" src="./js/themepref.js"></script>
 	<script type="text/javascript" src="./js/darkmode.js"></script>
-	
+
 	<script type="text/javascript" src="./_sports_science/jquery.min.js"></script>
 	<script type="text/javascript" src="./_sports_science/jquery.flot.js"></script>
 	<script type="text/javascript" src="./_sports_science/highcharts.js"></script>

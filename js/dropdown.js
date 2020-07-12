@@ -19,6 +19,8 @@ for (mobnav = 0; mobnav < toggler2.length; mobnav++) {
   });
 }
 
+/* -------------------------------------------------------------------------------- */
+
 /* Quick navigation active page */
 function quickNav() {
   let current_location = location.pathname.split('/')[1];
