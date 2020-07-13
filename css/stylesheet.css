@@ -14,7 +14,7 @@
   --secondary: #3c5d5c;
   --tertiary: #fff7d6;
   --box-shadow: 20px 20px 60px #cacaca, -20px -20px 60px #ffffff;
-  --blackbox: 242, 242, 242;
+  --blackbox: 230, 230, 230;
 }
 
 :root[color-mode="dark"] {
@@ -29,7 +29,7 @@
   --secondary: #72faca;
   --tertiary: #eee8a9;
   --box-shadow: 20px 20px 60px #1d1d1d, -20px -20px 60px #272727;
-  --blackbox: 51, 51, 51;
+  --blackbox: 38, 38, 38;
 }
 
 /* -------------------------------------------------------------------------------------- */
@@ -173,6 +173,7 @@ input:checked + .slider:before {
 /* HEADER */
 header {
   grid-area: header;
+  background-color: rgba(var(--blackbox),0.8);
   color: var(--element3);
   text-align: center;
   margin-bottom: 1em;
@@ -331,6 +332,7 @@ footer {
   grid-area: footer;
   text-align: center;
   color: var(--element3);
+  background-color: rgba(var(--blackbox),0.8);
   padding: 0.5em;
   margin-top: -0.5em;
 }
