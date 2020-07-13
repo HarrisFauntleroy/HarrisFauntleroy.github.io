@@ -70,7 +70,7 @@ html {
 }
 
 /* Active items on content area (MIGHT NEED TIDYING) */
-.sidebar-left .active, .dropdown-content .active, nav .active {
+#sidebar-left .active, .dropdown-content .active, nav .active {
   color: var(--primary);
 }
 
@@ -221,7 +221,8 @@ nav a {
 /* -------------------------------------------------------------------------------------- */
 
 /* SIDE NAVIGATION */
-#sidebar-left, .sidebar-left {
+/* maybe re add this if it breaks .sidebar-left */
+#sidebar-left {
   grid-area: side;
   background-color: var(--surface2);
   color: var(--element1);
@@ -303,7 +304,7 @@ nav a {
 /* -------------------------------------------------------------------------------------- */
 
 /* MAIN BODY CONTENT */
-.content, .about-me-content, .contact-content, .steroid-calc-content, .gallery-content, .links-content {
+.content, .about-me-content, .contact-content, .gallery-content, .links-content, .steroid-calc-content, .steroid-about-content {
   grid-area: body;
   padding: 1em;
   text-align: left;
@@ -320,9 +321,17 @@ nav a {
 .links-content a:focus { text-decoration: none; color:var(--primary); }
 .links-content a:hover, a:active { text-decoration: none; color:var(--primary) }
 
-.steroid-calc-content a { text-decoration: none; color: var(--element3);}
+.steroid-calc-content a { line-height: 1.5em; text-decoration: none; color: var(--element3);}
+.steroid-calc-content a:visited { text-decoration: none; color:var(--element3);}
 .steroid-calc-content a:hover { text-decoration: none; color:var(--primary); }
 .steroid-calc-content a:focus { text-decoration: none; color:var(--primary); }
+.steroid-calc-content a:hover, a:active { text-decoration: none; color:var(--primary) }
+
+.steroid-about-content a { line-height: 1.5em; text-decoration: none; color: var(--element3);}
+.steroid-about-content a:visited { text-decoration: none; color:var(--element3);}
+.steroid-about-content a:hover { text-decoration: none; color:var(--primary); }
+.steroid-about-content a:focus { text-decoration: none; color:var(--primary); }
+.steroid-about-content a:hover, a:active { text-decoration: none; color:var(--primary) }
 
 /* -------------------------------------------------------------------------------------- */
 /* -------------------------------------------------------------------------------------- */
@@ -398,6 +407,9 @@ footer a {
   /* Collapse desktop nav title */
   .desktop-nav-title {
     display: none;
+  }
+  .content, .contact-grid, .steroid-calc-grid, #sidebar-left, nav {
+    border-radius: 0;
   }
 }
 
