@@ -408,7 +408,7 @@ footer a {
   .desktop-nav-title {
     display: none;
   }
-  .content, .contact-grid, .steroid-calc-grid, #sidebar-left, nav {
+  .content, .about-me-content, .contact-content, .gallery-content, .links-content, .steroid-calc-content, .steroid-about-content, #sidebar-left, nav {
     border-radius: 0;
   }
 }
