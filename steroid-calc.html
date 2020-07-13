@@ -59,183 +59,185 @@
 		<div id="sidebar-left"></div>
 
 <! MAIN BODY >
-		<div class="steroid-calc-content">
+		<div class="content">
+			<div class="steroid-calc-content">
 
-			<div class="steroid-calc-header">
-				<h1>Steroid-Calc</h1> 
-			</div>
+				<div class="steroid-calc-header">
+					<h1>Steroid-Calc</h1> 
+				</div>
 
-			<div class="steroid-calc-inputs">
-				<form id="main-form" action="javascript:void(0);">
-					<div class="form">
-						<label>How many weeks would you like to graph?</label>
-						<select id="length" data-cip-id="cIPJQ342845640">
-							<option value="1">1 week</option>
-							<option value="2">2 weeks</option>
-							<option value="3">3 weeks</option>
-							<option value="4">4 weeks</option>
-							<option value="5">5 weeks</option>
-							<option value="6">6 weeks</option>
-							<option value="7">7 weeks</option>
-							<option value="8">8 weeks</option>
-							<option value="9">9 weeks</option>
-							<option value="10">10 weeks</option>
-							<option value="11">11 weeks</option>
-							<option value="12">12 weeks</option>
-							<option value="13">13 weeks</option>
-							<option value="14">14 weeks</option>
-							<option value="15">15 weeks</option>
-							<option value="16">16 weeks</option>
-							<option value="17">17 weeks</option>
-							<option value="18">18 weeks</option>
-							<option value="19">19 weeks</option>
-							<option value="20">20 weeks</option>
-							<option value="21">21 weeks</option>
-							<option value="22">22 weeks</option>
-							<option value="23">23 weeks</option>
-							<option value="24">24 weeks</option>
-							<option value="25">25 weeks</option>
-							<option value="26">26 weeks</option>
-							<option value="27">27 weeks</option>
-							<option value="28">28 weeks</option>
-							<option value="29">29 weeks</option>
-							<option value="30">30 weeks</option>
-						</select>
-					</div>
-				
-					<div class="inputs1">
-						<label>What compound(s) are you taking?</label>
-						<div id="all-compounds-div">
-							<div class="single-compound-div">
-								<div class="row compound-row">
-									<div class="small-4 columns">
-										<div class="row collapse">
-											<div class="small-8 columns">
-												<input type="text" class="dose" data-cip-id="cIPJQ342845639">
-											</div>
-											<div class="small-4 columns">
-												<span class="postfix">mg</span>
+				<div class="steroid-calc-inputs">
+					<form id="main-form" action="javascript:void(0);">
+						<div class="form">
+							<label>How many weeks would you like to graph?</label>
+							<select id="length" data-cip-id="cIPJQ342845640">
+								<option value="1">1 week</option>
+								<option value="2">2 weeks</option>
+								<option value="3">3 weeks</option>
+								<option value="4">4 weeks</option>
+								<option value="5">5 weeks</option>
+								<option value="6">6 weeks</option>
+								<option value="7">7 weeks</option>
+								<option value="8">8 weeks</option>
+								<option value="9">9 weeks</option>
+								<option value="10">10 weeks</option>
+								<option value="11">11 weeks</option>
+								<option value="12">12 weeks</option>
+								<option value="13">13 weeks</option>
+								<option value="14">14 weeks</option>
+								<option value="15">15 weeks</option>
+								<option value="16">16 weeks</option>
+								<option value="17">17 weeks</option>
+								<option value="18">18 weeks</option>
+								<option value="19">19 weeks</option>
+								<option value="20">20 weeks</option>
+								<option value="21">21 weeks</option>
+								<option value="22">22 weeks</option>
+								<option value="23">23 weeks</option>
+								<option value="24">24 weeks</option>
+								<option value="25">25 weeks</option>
+								<option value="26">26 weeks</option>
+								<option value="27">27 weeks</option>
+								<option value="28">28 weeks</option>
+								<option value="29">29 weeks</option>
+								<option value="30">30 weeks</option>
+							</select>
+						</div>
+					
+						<div class="inputs1">
+							<label>What compound(s) are you taking?</label>
+							<div id="all-compounds-div">
+								<div class="single-compound-div">
+									<div class="row compound-row">
+										<div class="small-4 columns">
+											<div class="row collapse">
+												<div class="small-8 columns">
+													<input type="text" class="dose" data-cip-id="cIPJQ342845639">
+												</div>
+												<div class="small-4 columns">
+													<span class="postfix">mg</span>
+												</div>
 											</div>
 										</div>
-									</div>
-									<div class="small-4 columns">
-										<select id="compound" class="compound" data-cip-id="cIPJQ342845641">
-											<option value="-" selected="" style="display:none;">Compound</option>
-											<option value="testosterone">Testosterone</option>
-											<option value="trenbolone">Trenbolone</option>
-											<option value="masteron">Masteron</option>
-											<option value="nandrolone">Nandrolone (Deca/NPP)</option>
-											<option value="equipoise">Equipoise</option>
-											<option value="primobolan">Primobolan</option>
-											<option value="halotestin">Halotestin</option>
-											<option value="anadrol">Anadrol</option>
-											<option value="dianabol">Dianabol</option>
-											<option value="turinabol">Turinabol</option>
-											<option value="winstrol">Winstrol</option>
-											<option value="anavar">Anavar</option>
-											<option value="superdrol">Superdrol</option>
-											<option value="dnp">DNP</option>
-											<option value="arimidex">Arimidex</option>
-										</select>
-									</div>
-									<div class="small-4 columns compound-form-div hide">
-									</div>
-								</div>
-								<div class="row compound-schedule-row hide">
-									<div class="small-4 columns">
-										<select class="schedule">
-											<option value="0.5">Twice a day</option>
-											<option value="1">Every day</option>
-											<option value="2">Every other day</option>
-											<option value="3">Every 3 days</option>
-											<option value="3.5">Every 3.5 days</option>
-											<option value="4">Every 4 days</option>
-											<option value="5">Every 5 days</option>
-											<option value="6">Every 6 days</option>
-											<option value="7">Every 7 days</option>
-											<option value="10">Every 10 days</option>
-											<option value="14">Every 14 days</option>
-											<option value="21">Every 21 days</option>
-											<option value="28">Every 4 weeks</option>
-											<option value="35">Every 5 weeks</option>
-											<option value="42">Every 6 weeks</option>
-											<option value="49">Every 7 weeks</option>
-											<option value="56">Every 8 weeks</option>
-											<option value="mon">Every Monday</option>
-											<option value="tue">Every Tuesday</option>
-											<option value="wed">Every Wednesday</option>
-											<option value="thu">Every Thursday</option>
-											<option value="fri">Every Friday</option>
-											<option value="sat">Every Saturday</option>
-											<option value="sun">Every Sunday</option>
-										</select>
-									</div>
-									<div class="small-4 columns">
-										<div class="row collapse">
-											<div class="small-4 columns">
-												<span class="prefix">From</span>
-											</div>
-											<div class="small-8 columns">
-												<select class="from">
-												</select>
-											</div>
+										<div class="small-4 columns">
+											<select id="compound" class="compound" data-cip-id="cIPJQ342845641">
+												<option value="-" selected="" style="display:none;">Compound</option>
+												<option value="testosterone">Testosterone</option>
+												<option value="trenbolone">Trenbolone</option>
+												<option value="masteron">Masteron</option>
+												<option value="nandrolone">Nandrolone (Deca/NPP)</option>
+												<option value="equipoise">Equipoise</option>
+												<option value="primobolan">Primobolan</option>
+												<option value="halotestin">Halotestin</option>
+												<option value="anadrol">Anadrol</option>
+												<option value="dianabol">Dianabol</option>
+												<option value="turinabol">Turinabol</option>
+												<option value="winstrol">Winstrol</option>
+												<option value="anavar">Anavar</option>
+												<option value="superdrol">Superdrol</option>
+												<option value="dnp">DNP</option>
+												<option value="arimidex">Arimidex</option>
+											</select>
+										</div>
+										<div class="small-4 columns compound-form-div hide">
 										</div>
 									</div>
-				
-									<div class="small-4 columns">
-										<div class="row collapse">
-											<div class="small-4 columns">
-												<span class="prefix">Through</span>
+									<div class="row compound-schedule-row hide">
+										<div class="small-4 columns">
+											<select class="schedule">
+												<option value="0.5">Twice a day</option>
+												<option value="1">Every day</option>
+												<option value="2">Every other day</option>
+												<option value="3">Every 3 days</option>
+												<option value="3.5">Every 3.5 days</option>
+												<option value="4">Every 4 days</option>
+												<option value="5">Every 5 days</option>
+												<option value="6">Every 6 days</option>
+												<option value="7">Every 7 days</option>
+												<option value="10">Every 10 days</option>
+												<option value="14">Every 14 days</option>
+												<option value="21">Every 21 days</option>
+												<option value="28">Every 4 weeks</option>
+												<option value="35">Every 5 weeks</option>
+												<option value="42">Every 6 weeks</option>
+												<option value="49">Every 7 weeks</option>
+												<option value="56">Every 8 weeks</option>
+												<option value="mon">Every Monday</option>
+												<option value="tue">Every Tuesday</option>
+												<option value="wed">Every Wednesday</option>
+												<option value="thu">Every Thursday</option>
+												<option value="fri">Every Friday</option>
+												<option value="sat">Every Saturday</option>
+												<option value="sun">Every Sunday</option>
+											</select>
+										</div>
+										<div class="small-4 columns">
+											<div class="row collapse">
+												<div class="small-4 columns">
+													<span class="prefix">From</span>
+												</div>
+												<div class="small-8 columns">
+													<select class="from">
+													</select>
+												</div>
 											</div>
-											<div class="small-8 columns">
-												<select class="to">
-												</select>
+										</div>
+					
+										<div class="small-4 columns">
+											<div class="row collapse">
+												<div class="small-4 columns">
+													<span class="prefix">Through</span>
+												</div>
+												<div class="small-8 columns">
+													<select class="to">
+													</select>
+												</div>
 											</div>
 										</div>
 									</div>
 								</div>
 							</div>
 						</div>
-					</div>
-				
-					<div class="inputs2">
-						<div id="button-row" class="row hide">
-							<div class="small-12 columns">
-								<a id="plot-button" class="button" href="javascript:void(0);">Plot</a>
-								<a id="add-compound-button" class="secondary button" href="javascript:void(0);">Add another compound</a>
+					
+						<div class="inputs2">
+							<div id="button-row" class="row hide">
+								<div class="small-12 columns">
+									<a id="plot-button" class="button" href="javascript:void(0);">Plot</a>
+									<a id="add-compound-button" class="secondary button" href="javascript:void(0);">Add another compound</a>
+								</div>
 							</div>
+						</form>
 						</div>
-					</form>
+				</div>
+				
+				<div class="graph-div">
+					<h4 id="cycle-header" class="hide">Rate of compound release (mg/day)</h4>
+					<div id="cycle-container" style="display: block;">
+						<div class="row collapse">
+							<div id="cycle-plot" class="large-10 medium-9 columns"></div>
+							<div id="flot-label" class="large-2 medium-3 columns"></div>
+						</div>
 					</div>
-			</div>
-			
-			<div class="graph-div">
-				<h4 id="cycle-header" class="hide">Rate of compound release (mg/day)</h4>
-				<div id="cycle-container" style="display: block;">
-					<div class="row collapse">
-						<div id="cycle-plot" class="large-10 medium-9 columns"></div>
-						<div id="flot-label" class="large-2 medium-3 columns"></div>
+					<div id="share-div" class="row collapse hide">
+						<div class="small-4 medium-2 columns">
+							<span class="prefix">Share</span>
+						</div>
+						<div class="small-8 medium-10 columns">
+							<input type="text" id="share-url" class="select-on-focus input-block-level" value="">
+						</div>
 					</div>
 				</div>
-				<div id="share-div" class="row collapse hide">
-					<div class="small-4 medium-2 columns">
-						<span class="prefix">Share</span>
-					</div>
-					<div class="small-8 medium-10 columns">
-						<input type="text" id="share-url" class="select-on-focus input-block-level" value="">
-					</div>
+
+				<div class="steroid-calc-version">
+					Version 1.0
 				</div>
-			</div>
 
-			<div class="steroid-calc-version">
-				Version 1.0
+				<div class="steroid-calc-about">
+					<a href="/steroid-about.html"><i class="fa fa-book" aria-hidden="true"></i>
+						Further information.</a>
+				</div>
+				
 			</div>
-
-			<div class="steroid-calc-about">
-				<a href="/steroid-about.html"><i class="fa fa-book" aria-hidden="true"></i>
-					Further information.</a>
-			</div>
-			
 		</div>
 
 <!SUB GRID ! END>

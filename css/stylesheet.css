@@ -304,7 +304,7 @@ nav a {
 /* -------------------------------------------------------------------------------------- */
 
 /* MAIN BODY CONTENT */
-.content, .about-me-content, .contact-content, .gallery-content, .links-content, .steroid-calc-content, .steroid-about-content {
+.content {
   grid-area: body;
   padding: 1em;
   text-align: left;
@@ -315,23 +315,11 @@ nav a {
 }
 
 /* Links on sub pages */
-.links-content a { line-height: 1.5em; text-decoration: none; color: var(--element3);}
-.links-content a:visited { text-decoration: none; color:var(--secondary);}
-.links-content a:hover { text-decoration: none; color:var(--primary); }
-.links-content a:focus { text-decoration: none; color:var(--primary); }
-.links-content a:hover, a:active { text-decoration: none; color:var(--primary) }
-
-.steroid-calc-content a { line-height: 1.5em; text-decoration: none; color: var(--element3);}
-.steroid-calc-content a:visited { text-decoration: none; color:var(--element3);}
-.steroid-calc-content a:hover { text-decoration: none; color:var(--primary); }
-.steroid-calc-content a:focus { text-decoration: none; color:var(--primary); }
-.steroid-calc-content a:hover, a:active { text-decoration: none; color:var(--primary) }
-
-.steroid-about-content a { line-height: 1.5em; text-decoration: none; color: var(--element3);}
-.steroid-about-content a:visited { text-decoration: none; color:var(--element3);}
-.steroid-about-content a:hover { text-decoration: none; color:var(--primary); }
-.steroid-about-content a:focus { text-decoration: none; color:var(--primary); }
-.steroid-about-content a:hover, a:active { text-decoration: none; color:var(--primary) }
+.content a { line-height: 1.5em; text-decoration: none; color: var(--element3);}
+.content a:visited { text-decoration: none; color:var(--secondary);}
+.content a:hover { text-decoration: none; color:var(--primary); }
+.content a:focus { text-decoration: none; color:var(--primary); }
+.content a:hover, a:active { text-decoration: none; color:var(--primary) }
 
 /* -------------------------------------------------------------------------------------- */
 /* -------------------------------------------------------------------------------------- */
@@ -408,7 +396,7 @@ footer a {
   .desktop-nav-title {
     display: none;
   }
-  .content, .about-me-content, .contact-content, .gallery-content, .links-content, .steroid-calc-content, .steroid-about-content, #sidebar-left, nav {
+  .content, #sidebar-left, nav {
     border-radius: 0;
   }
 }
