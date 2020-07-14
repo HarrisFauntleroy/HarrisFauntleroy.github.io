@@ -368,6 +368,15 @@ footer a {
   "side body";
 }
 
+/* Content */
+.content {
+  display: grid;
+  grid-gap: 0.5em;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas: "content";
+}
+
 /* Turn content section into single column on smaller screens */
 @media only screen and (max-width: 480px)  {
   .subgrid {
@@ -405,7 +414,7 @@ footer a {
 .contact-content {
   display: grid;
   grid-gap: 0.5em;
-  grid-template-columns: auto 1fr;
+  grid-template-columns: 1fr 1fr;
   grid-template-rows: auto auto 1fr auto;
   grid-template-areas: "a1 a2"
                        "b1 b2"
