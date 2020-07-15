@@ -302,7 +302,7 @@ nav a {
  /* Style the menu caret */
  .dropdown-btn {
   cursor: pointer;
-  user-select: none; /* Prevent text selection */
+  user-select: none;
 }
 /* Rotate the caret/arrow icon when clicked on (using JavaScript) */
 .dropdown-btn-down::before {
@@ -311,14 +311,6 @@ nav a {
 /* dropdown content (hidden by default) */
 .dropdown-content {
   display: none;
-  background-color: var(--surface3);
-  border-radius: 1em;
-  padding: 1em;
-}
-
-.dropdown-content a {
-  padding-left: 1.3em;
-  padding-right: 1.3em;
 }
 
  /* Show the nested list when the user clicks on the caret/arrow (with JavaScript) */
@@ -534,7 +526,8 @@ input[type=submit]:hover {
 /* STEROID-CALC */
 /* Places it in the body of the subgrid */
 .steroid-calc-content {
-  grid-area: body;
+  display: grid;
+  grid-area: content;
 }
 
 .steroid-calc-header {
