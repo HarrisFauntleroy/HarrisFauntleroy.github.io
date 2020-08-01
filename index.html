@@ -4,89 +4,232 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Harris Fauntleroy</title>
-	<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-	<link rel="stylesheet" type="text/css" href="/css/stylesheet.css">
-	<link rel="stylesheet" type="text/css" href="/css/font-awesome-4.7.0/css/font-awesome.css">
-	<link rel="apple-touch-icon" sizes="57x57" href="icon/apple-icon-57x57.png">
-	<link rel="apple-touch-icon" sizes="60x60" href="icon/apple-icon-60x60.png">
-	<link rel="apple-touch-icon" sizes="72x72" href="icon/apple-icon-72x72.png">
-	<link rel="apple-touch-icon" sizes="76x76" href="icon/apple-icon-76x76.png">
-	<link rel="apple-touch-icon" sizes="114x114" href="icon/apple-icon-114x114.png">
-	<link rel="apple-touch-icon" sizes="120x120" href="icon/apple-icon-120x120.png">
-	<link rel="apple-touch-icon" sizes="144x144" href="icon/apple-icon-144x144.png">
-	<link rel="apple-touch-icon" sizes="152x152" href="icon/apple-icon-152x152.png">
-	<link rel="apple-touch-icon" sizes="180x180" href="icon/apple-icon-180x180.png">
-	<link rel="icon" type="image/png" sizes="192x192"  href="icon/android-icon-192x192.png">
-	<link rel="icon" type="image/png" sizes="32x32" href="icon/favicon-32x32.png">
-	<link rel="icon" type="image/png" sizes="96x96" href="icon/favicon-96x96.png">
-	<link rel="icon" type="image/png" sizes="16x16" href="icon/favicon-16x16.png">
-	<link rel="manifest" href="icon/manifest.json">
-	<meta name="msapplication-TileColor" content="#ffffff">
-	<meta name="msapplication-TileImage" content="icon/ms-icon-144x144.png">
-	<meta name="theme-color" content="#ffffff">
+    <meta name="description" content="Harris Fauntleroys personal website.">
+    <title>Harris Fauntleroy</title>
+    <link rel="stylesheet" type="text/css" href="/public/css/stylesheet.css?v=6">
+    <link rel="stylesheet" type="text/css" href="/public/css/theme.css?v=1">
+    <link rel="stylesheet" type="text/css" href="/public/css/cssgrids.css?v=6">
+    <link rel="stylesheet" type="text/css" href="/public/css/font-awesome-4.7.0/css/font-awesome.css">
 </head>
+
+<!-- MAIN GRID START -->
 
 <body>
 
-	<! MAIN GRID >
-	<div class="grid">
+    <div id="maingrid">
 
-<! DARK-MODE TOGGLE >
-		<li class="theme-switch-wrapper">
-			<label class="theme-switch" for="checkbox">
-				<input type="checkbox" id="checkbox"/>
-				<div class="slider round"></div>
-			</label>
-		</li>	
+        <!-- BANNER -->
+        <section>
+            <input type="checkbox" id="theme-toggle" style="display: none">
+            <label for="theme-toggle"> <img class="logo" src="/public/img/logo.png"> </label>
+        </section>
 
-<! AVATAR >
-		<img src="/images/vaporgram.png" alt="avatar" class="avatar">
-		<div class="blackbox"></div>
-    
+        <!-- HEADER -->
+        <header>
+            <h2>Harris Fauntleroy</h2>
+        </header>
 
-<! HEADER >
-	  	<header>
-			<h1>Harris Fauntleroy</h1>
-		</header>
+        <!-- NAVBAR -->
+        <nav>
+            <a id="navhome" href="/index"><i class="fa fa-home fa-lg" aria-hidden="true"></i></a>
 
-<! QUICKNAV >	
-		<div id="nav"></div>
+            <a id="navgit" href="https://github.com/HarrisFauntleroy"><i class="fa fa-github fa-lg" aria-hidden="true"></i></a>
 
-<! SUB GRID 1 >
-		<div class="subgrid">
+            <a id="navlinkd" href="https://www.linkedin.com/in/harris-fauntleroy-b4b5b51b1/"><i class="fa fa-linkedin-square fa-lg" aria-hidden="true"></i></a>
 
-<! SIDEBAR >		  
-		<div id="sidebar-left"></div>
+            <a id="navcontact" href="/app/controllers/contactform"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a>
 
-<! MAIN BODY >
-		<div class="content">
-			<div class="index">
-				<h2><i class="fa-blink fa fa-terminal" aria-hidden="true"></i></h2>
-				<p>
-				
-				</p>
-		    </div>
-		</div>
+            <a id="navlogin" href="#"><i class="fa fa-sign-in fa-lg" aria-hidden="true"></i></a>
 
-<!SUB GRID ! END>
-		</div>
-		
-<! FOOTER >
-		<footer>
-            Copyright &copy; 2020 Harris Fauntleroy<br>
-			<a href="https://github.com/HarrisFauntleroy"><i class="fa fa-github" aria-hidden="true"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
-			<a href="https://www.linkedin.com/in/harris-fauntleroy-b4b5b51b1/"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a>
-		</footer>
-		  
-<! MAIN GRID END >
-	</div>
+            <a id="open-menu" href="#"><i class="fa fa-bars fa-lg" aria-hidden="true"></i></a>
+        </nav>
 
-<! JAVASCRIPT >
-	<script type="text/javascript" src="./js/dropdown.js"></script>
-	<script type="text/javascript" src="./js/navigation.js"></script>
-	<script type="text/javascript" src="./js/themepref.js"></script>
-	<script type="text/javascript" src="./js/darkmode.js"></script>
+        <!-- SUBGRID START -->
+
+        <div id="subgrid">
+
+            <!-- Site navigation -->
+            <aside id="side-left">
+
+                <!-- Header for desktop -->
+                <h3 id="sitenav-header">Site navigation</h3>
+
+                <!-- Menu -->
+                <ul id="site-nav-menu">
+
+                    <li><span class="dropdown-btn">TAFE ICT50615</span>
+                        <ul class="dropdown-content">
+                            <li><span class="dropdown-btn">CMS</span>
+                                <ul class="dropdown-content">
+                                    <li><span class="dropdown-btn">Wordpress</span>
+                                        <ul class="dropdown-content">
+                                            <li><a href="/cms/wordpress">- Photographer site</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><span class="dropdown-btn">Drupal</span>
+                                        <ul class="dropdown-content">
+                                            <li><a href="/cms/drupal">- empty</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><span class="dropdown-btn">Joomla</span>
+                                        <ul class="dropdown-content">
+                                            <li><a href="/cms/joomla">- empty</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <li><span class="dropdown-btn">Web design cluster</span>
+                                <ul class="dropdown-content">
+                                    <li><a href="/ICT50615/single-page-site/">- Single page website</a></li>
+                                    <li><a href="/ICT50615/five-page-site/">- Five page website</a></li>
+                                    <li><a href="/ICT50615/web-form/">- Web form</a></li>
+                                    <li><a href="/ICT50615/single-page-application/">- Single page application</a></li>
+                                </ul>
+                            <li><span class="dropdown-btn">Integrate database with a website</span>
+                                <ul class="dropdown-content">
+                                    <li><a href="#">- spare</a></li>
+                                </ul>
+                            <li><span class="dropdown-btn">Create web based programs</span>
+                                <ul class="dropdown-content">
+                                    <li><a href="#">- spare</a></li>
+                                </ul>
+                            <li><a href="#">- spare</a></li>
+                        </ul>
+                    </li>
+
+                    <li><span class="dropdown-btn">Web development</span>
+                        <ul class="dropdown-content">
+                            <li><span class="dropdown-btn">CSS snippets</span>
+                                <ul class="dropdown-content">
+                                    <li><a href="#">- Buttons</a></li>
+                                    <li><a href="#">- Inputs</a></li>
+                                    <li><a href="#">- Animations</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="https://harrisfauntleroy.github.io/">- Static site</a></li>
+                            <li><a href="https://harrisfauntleroy.com/">- Dynamic (PHP)</a></li>
+                        </ul>
+                    </li>
+
+                    <li><span class="dropdown-btn">Fitness</span>
+                        <ul class="dropdown-content">
+                            <li><span class="dropdown-btn">SUBMENU</span>
+                                <ul class="dropdown-content">
+                                    <li><a href="#">- empty</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">- empty</a></li>
+                        </ul>
+                    </li>
+
+                    <li><span class="dropdown-btn">Photography</span>
+                        <ul class="dropdown-content">
+                            <li><span class="dropdown-btn">SUBMENU</span>
+                                <ul class="dropdown-content">
+                                    <li><a href="#">- empty</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">- empty</a></li>
+                        </ul>
+                    </li>
+
+                    <li><span class="dropdown-btn">Projects</span>
+                        <ul class="dropdown-content">
+                            <li><span class="dropdown-btn">SUBMENU</span>
+                                <ul class="dropdown-content">
+                                    <li><a href="#">- empty</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">- empty</a></li>
+                        </ul>
+                    </li>
+
+                    <li><span class="dropdown-btn">Links</span>
+                        <ul class="dropdown-content">
+                            <li><span class="dropdown-btn">Instagram</span>
+                                <ul class="dropdown-content">
+                                    <li><a href="https://www.instagram.com/harrisfauntleroy/">- Photography <i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                                    <li><a href="https://www.instagram.com/the_quantum_general/">- High voltage <i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                                    <li><a href="https://www.instagram.com/shrugganaught/">- Weightlifting <i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                                </ul>
+                            </li>
+                            <li><a href="https://www.instructables.com/member/HazzWold1993/">- Instructables</a></li>
+                        </ul>
+                    </li>
+
+                </ul>
+
+            </aside>
+
+
+            <main>
+                <article>
+                    <h2>Welcome.</h2>
+                    <p>A lot of this site is currently a work in progress.</p>
+                </article>
+            </main>
+
+            <aside id="side-right">
+            </aside>
+
+            <!-- SUBGRID END -->
+        </div>
+
+        <footer>
+            <p>Copyright &copy; 2020 Harris Fauntleroy</p>
+        </footer>
+
+        <!-- MAIN GRID END -->
+    </div>
+
+    <script>
+        const btn = document.querySelector("input[id=theme-toggle]");
+        const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
+
+        const currentTheme = localStorage.getItem("theme");
+        if (currentTheme == "dark") {
+            document.body.classList.toggle("dark-theme");
+        } else if (currentTheme == "light") {
+            document.body.classList.toggle("light-theme");
+        }
+
+        btn.addEventListener("change", function() {
+            if (prefersDarkScheme.matches) {
+                document.body.classList.toggle("light-theme");
+                var theme = document.body.classList.contains("light-theme") ?
+                    "light" :
+                    "dark";
+            } else {
+                document.body.classList.toggle("dark-theme");
+                var theme = document.body.classList.contains("dark-theme") ?
+                    "dark" :
+                    "light";
+            }
+            localStorage.setItem("theme", theme);
+        });
+    </script>
+
+    <script>
+        var toggler = document.getElementsByClassName("dropdown-btn");
+        var i;
+
+        for (i = 0; i < toggler.length; i++) {
+            toggler[i].addEventListener("click", function() {
+                this.parentElement.querySelector(".dropdown-content").classList.toggle("show-content");
+                this.classList.toggle("dropdown-btn-down");
+            });
+        }
+    </script>
+
+    <script>
+        const navBar = document.querySelector("nav");
+        const navToggle = document.querySelector("#open-menu");
+        const toggleLeftSide = () => {
+            navBar.classList.toggle("navOpen");
+        };
+        navToggle.addEventListener("click", toggleLeftSide, false);
+    </script>
 
 </body>
 

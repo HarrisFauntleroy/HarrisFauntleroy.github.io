@@ -1,0 +1,66 @@
+/* -------------------------------------------------------------------------------------- */
+/* DARK/LIGHT MODE */
+/* -------------------------------------------------------------------------------------- */
+/* Check user preference for color scheme */
+/* --------------------- --------------------- */
+body {
+  --surface1: #E0E0E0;
+  --surface2: #EEEEEE;
+  --surface3: #F5F5F5;
+  --element1: #111111;
+  --element2: #222222;
+  --element3: #333333;
+  --elementInverse: #eee;
+  --primary: #01408e;
+  --secondary: #3c5d5c;
+  --tertiary: #fff7d6;
+  --box-shadow: 20px 20px 60px #cacaca, -20px -20px 60px #ffffff;
+  --blackbox: 224, 224, 224;
+}
+
+body.dark-theme {
+  --surface1: #262626;
+  --surface2: #333333;
+  --surface3: #404040;
+  --element1: rgba(255, 255, 255, 1);
+  --element2: rgba(255, 255, 255, 0.8);
+  --element3: rgba(255, 255, 255, 0.6);
+  --elementInverse: #111;
+  --primary: #8fceff;
+  --secondary: #72faca;
+  --tertiary: #eee8a9;
+  --box-shadow: 20px 20px 60px #1d1d1d, -20px -20px 60px #272727;
+  --blackbox: 38, 38, 38;
+}
+
+@media (prefers-color-scheme: dark) {
+  /* defaults to dark theme */
+  body {
+    --surface1: #262626;
+    --surface2: #333333;
+    --surface3: #404040;
+    --element1: rgba(255, 255, 255, 1);
+    --element2: rgba(255, 255, 255, 0.8);
+    --element3: rgba(255, 255, 255, 0.6);
+    --elementInverse: #111;
+    --primary: #8fceff;
+    --secondary: #72faca;
+    --tertiary: #eee8a9;
+    --box-shadow: 20px 20px 60px #1d1d1d, -20px -20px 60px #272727;
+    --blackbox: 38, 38, 38;
+  }
+  body.light-theme {
+    --surface1: #E0E0E0;
+    --surface2: #EEEEEE;
+    --surface3: #F5F5F5;
+    --element1: #111111;
+    --element2: #222222;
+    --element3: #333333;
+    --elementInverse: #eee;
+    --primary: #01408e;
+    --secondary: #3c5d5c;
+    --tertiary: #fff7d6;
+    --box-shadow: 20px 20px 60px #cacaca, -20px -20px 60px #ffffff;
+    --blackbox: 224, 224, 224;
+  }
+}
