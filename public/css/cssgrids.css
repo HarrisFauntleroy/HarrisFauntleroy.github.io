@@ -1,29 +1,8 @@
-/* -------------------------------------------------------------------------------------- */
-/* GRIDS */
-/* -------------------------------------------------------------------------------------- */
-/* TOP NAVIGATION BAR GRID */
-/* --------------------- --------------------- */
-nav {
-  display: grid;
-  max-width: max-content;
-  justify-self: center;
-  grid-template-columns: auto auto auto auto auto auto;
-  grid-template-rows: 1fr;
-  grid-column-gap: 0.5em;
-  grid-template-areas: "nav1 nav2 nav3 nav4 nav5 nav6";
-}
-
-nav.navOpen > #open-menu {
-  height: 200px;
-}
-
 /* --------------------- --------------------- */
 /* MAIN GRID */
 /* --------------------- --------------------- */
 #maingrid {
   display: grid;
-  height: 100vh;
-  max-width: 100vw;
   grid-template-columns: 1fr;
   grid-template-rows: auto auto auto 1fr auto;
   grid-row-gap: 0.5em;
@@ -33,6 +12,7 @@ nav.navOpen > #open-menu {
     "body-navbar"
     "body-content"
     "body-footer";
+    height: 100vh;
 }
 
 /* --------------------- --------------------- */
@@ -42,10 +22,12 @@ nav.navOpen > #open-menu {
   #subgrid {
     display: grid;
     grid-area: body-content;
-    grid-template-columns: 0 1fr 0;
+    grid-template-columns: 0px 1fr 0px;
+    grid-template-rows: 1fr;
     transition: grid-template-columns 350ms ease;
-    grid-template-rows: auto;
-    grid-template-areas: "sg-left sg-middle sg-right";
+    grid-template-areas: "sg-left sg-middle sg-right"; 
+    max-width: 100vw;
+    margin: 0 0.5em;
   }
 
 }
@@ -58,11 +40,96 @@ nav.navOpen > #open-menu {
     display: grid;
     grid-area: body-content;
     grid-template-columns: 1fr;
-    grid-template-rows: 0 1fr 0;
+    grid-template-rows: 0px 1fr 0px;
     transition: grid-template-rows 350ms ease;
     grid-template-areas:
       "sg-left"
       "sg-middle"
       "sg-right";
   }
+}
+
+/* --------------------- --------------------- */
+/* GRID ITEMS */
+/* --------------------- --------------------- */
+
+section {
+  display: grid;
+  grid-area: body-banner;
+  justify-content: center;
+  background: linear-gradient(
+    to bottom,
+    var(--surface1) 50%,
+    rgba(255, 0, 0, 0) 50%
+  );
+}
+
+header {
+  display: grid;
+  grid-area: body-header;
+  justify-content: center;
+}
+
+nav {
+  display: grid;
+  grid-area: body-navbar;
+  justify-self: center;
+  grid-template-columns: auto auto auto auto;
+  grid-template-rows: auto;
+  grid-column-gap: 0.5em;
+  grid-template-areas: "nav1 nav2 nav3 nav4";
+}
+
+#navhome {
+  display: grid;
+  grid-area: nav1;
+}
+
+#navgit {
+  display: grid;
+  grid-area: nav2;
+}
+
+#navlinkd {
+  display: grid;
+  grid-area: nav3;
+}
+
+#navcontact {
+  display: grid;
+  grid-area: nav4;
+}
+
+#navlogin {
+  display: grid;
+  grid-area: nav5;
+}
+
+#open-menu {
+  display: grid;
+  grid-area: nav6;
+}
+
+#side-left {
+  display: grid;
+  grid-area: sg-left;
+}
+
+main {
+  display: grid;
+  grid-area: sg-middle;
+  user-select: text;
+  padding: 1em;
+}
+
+#side-right {
+  display: grid;
+  grid-area: sg-right;
+}
+
+footer {
+  display: grid;
+  grid-area: body-footer;
+  justify-content: center;
+  margin-bottom: 0.5em;
 }
