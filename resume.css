@@ -1,3 +1,13 @@
+/* Avatar */
+.avatar {
+  border-radius: 1em !important; 
+  width: 80px !important;
+  height: 80px !important; 
+  position: absolute !important;
+  top: 30px !important; 
+  right: 30px !important;
+}
+
 /* latin */
 
 @font-face {
@@ -55240,11 +55250,7 @@ body .icon-parent::before {
   }
 
   .xsm\:hover\:border-opacity-25:hover {
-    --border-opacity: 0.25;
-  }
-
-  .xsm\:hover\:border-opacity-50:hover {
-    --border-opacity: 0.5;
+    --border-opacity: 0.25;header
   }
 
   .xsm\:hover\:border-opacity-75:hover {
