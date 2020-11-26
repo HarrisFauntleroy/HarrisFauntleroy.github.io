@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { CSSTransition } from 'react-transition-group'
 import { ReactComponent as UserIcon } from '../icons/user-solid.svg'
 import { ReactComponent as TwitterIcon } from '../icons/twitter-brands.svg'
+import { ReactComponent as InstagramIcon } from '../icons/instagram-brands.svg'
 import { ReactComponent as SlackIcon } from '../icons/slack-brands.svg'
 import { ReactComponent as LinkedInIcon } from '../icons/linkedin-brands.svg'
 import { ReactComponent as LinkIcon } from '../icons/link-solid.svg'
@@ -27,7 +28,7 @@ export function NavItem(props) {
 
     return (
         <li className="nav-item">
-            <a href="#" className="icon-button" onClick={() => setOpen(!open)}>
+            <a href={props.location} className="icon-button" onClick={() => setOpen(!open)}>
                 {props.icon}
             </a>
 
@@ -36,18 +37,20 @@ export function NavItem(props) {
     )
 }
 
-export function NavBurger() {
+export function NavBurger(props) {
 
-    const [collapsed, setCollapsed] = useState(true);
+    const [open, setOpen] = useState(false);
 
     return (
-        <NavItem
-            icon={<HamburgerIcon
-                onClick={() => setCollapsed(!collapsed)}
-                className={`hamburger ${collapsed ? "" : "opened"}`}
-            />}>
-            <DropdownMenu></DropdownMenu>
-        </NavItem>
+        <li className="nav-item">
+            <a
+                href="#"
+                className={`icon-button ${open ? "opened" : ""}`}
+                onClick={() => setOpen(!open)}>
+                <HamburgerIcon />
+            </a>
+            {open && props.children}
+        </li>
     );
 }
 
@@ -68,7 +71,7 @@ export function DropdownMenu() {
 
     function DropdownItem(props) {
         return (
-            <a href="#" className="menu-item" onClick={() => props.goToMenu && setActiveMenu(props.goToMenu)}>
+            <a href={props.location} className="menu-item" onClick={() => props.goToMenu && setActiveMenu(props.goToMenu)}>
                 <span className="icon-button">{props.leftIcon}</span>
                 {props.children}
                 {/* <span className="icon-right">{props.rightIcon}</span> */}
@@ -88,19 +91,20 @@ export function DropdownMenu() {
                 <div className="menu">
                     <DropdownItem
                         leftIcon={<UserIcon />}
+                        location="https://harrisfauntleroy.dev/resume/"
                     >Resume</DropdownItem>
 
                     <DropdownItem
                         leftIcon={<GearIcon />}
                         rightIcon={<ArrowRightIcon />}
-                        goToMenu="animals">
+                        goToMenu="projects">
                         Projects
           </DropdownItem>
 
                     <DropdownItem
                         leftIcon={<LinkIcon />}
                         rightIcon={<ArrowRightIcon />}
-                        goToMenu="settings">
+                        goToMenu="links">
                         Links
           </DropdownItem>
 
@@ -108,7 +112,7 @@ export function DropdownMenu() {
             </CSSTransition>
 
             <CSSTransition
-                in={activeMenu === 'settings'}
+                in={activeMenu === 'links'}
                 timeout={500}
                 classNames="menu-secondary"
                 unmountOnExit
@@ -117,17 +121,17 @@ export function DropdownMenu() {
                     <DropdownItem goToMenu="main" leftIcon={<ArrowLeftIcon />}>
                         <h2>Links</h2>
                     </DropdownItem>
-                    <DropdownItem leftIcon={<GithubIcon />}>Github</DropdownItem>
-                    <DropdownItem leftIcon={<LinkedInIcon />}>LinkedIn</DropdownItem>
-                    <DropdownItem leftIcon={<TwitterIcon />}>Twitter</DropdownItem>
-                    <DropdownItem leftIcon={<DiscordIcon />}>Discord</DropdownItem>
-                    <DropdownItem leftIcon={<SlackIcon />}>Slack</DropdownItem>
-                    <DropdownItem leftIcon={<InstructablesIcon />}>Instructables</DropdownItem>
+                    <DropdownItem location="https://github.com/HarrisFauntleroy" leftIcon={<GithubIcon />}>Github</DropdownItem>
+                    <DropdownItem location="https://www.linkedin.com/in/harris-fauntleroy-b4b5b51b1/" leftIcon={<LinkedInIcon />}>LinkedIn</DropdownItem>
+                    <DropdownItem location="https://twitter.com/CosmicOctopus99" leftIcon={<TwitterIcon />}>Twitter</DropdownItem>
+                    <DropdownItem location="https://discord.gg/N4MGJGG7RA" leftIcon={<DiscordIcon />}>Discord</DropdownItem>
+                    <DropdownItem location="https://www.instagram.com/harrisfauntleroy/" leftIcon={<InstagramIcon />}>Instagram</DropdownItem>
+                    <DropdownItem location="https://www.instructables.com/member/HazzWold1993/" leftIcon={<InstructablesIcon />}>Instructables</DropdownItem>
                 </div>
             </CSSTransition>
 
             <CSSTransition
-                in={activeMenu === 'animals'}
+                in={activeMenu === 'projects'}
                 timeout={500}
                 classNames="menu-secondary"
                 unmountOnExit
@@ -136,10 +140,10 @@ export function DropdownMenu() {
                     <DropdownItem goToMenu="main" leftIcon={<ArrowLeftIcon />}>
                         <h2>Projects</h2>
                     </DropdownItem>
-                    <DropdownItem leftIcon="🦸">Marvel React App</DropdownItem>
-                    <DropdownItem leftIcon="🌿">No More Plants!</DropdownItem>
-                    <DropdownItem leftIcon="📖">Library Admin Panel</DropdownItem>
-                    <DropdownItem leftIcon="🚧">Hermes (In-dev)</DropdownItem>
+                    <DropdownItem location="https://github.com/HarrisFauntleroy/marvel-react-app" leftIcon="🦸">Marvel React App</DropdownItem>
+                    <DropdownItem location="https://github.com/HarrisFauntleroy/no-more-plants" leftIcon="🌿">No More Plants!</DropdownItem>
+                    <DropdownItem location="https://github.com/HarrisFauntleroy/library-admin-panel" leftIcon="📖">Library Admin Panel</DropdownItem>
+                    <DropdownItem location="https://github.com/HarrisFauntleroy/hermes" leftIcon="🚧">Hermes (In-dev)</DropdownItem>
                 </div>
             </CSSTransition>
         </div>
