@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/static/css/main.279b28d1.chunk.css",
-    "main.js": "/static/js/main.1865ae45.chunk.js",
-    "main.js.map": "/static/js/main.1865ae45.chunk.js.map",
+    "main.css": "/static/css/main.69ddd59f.chunk.css",
+    "main.js": "/static/js/main.e7ddcf06.chunk.js",
+    "main.js.map": "/static/js/main.e7ddcf06.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.6e76dcdf.js",
     "runtime-main.js.map": "/static/js/runtime-main.6e76dcdf.js.map",
     "static/js/2.16d26a36.chunk.js": "/static/js/2.16d26a36.chunk.js",
     "static/js/2.16d26a36.chunk.js.map": "/static/js/2.16d26a36.chunk.js.map",
     "index.html": "/index.html",
-    "static/css/main.279b28d1.chunk.css.map": "/static/css/main.279b28d1.chunk.css.map",
+    "static/css/main.69ddd59f.chunk.css.map": "/static/css/main.69ddd59f.chunk.css.map",
     "static/js/2.16d26a36.chunk.js.LICENSE.txt": "/static/js/2.16d26a36.chunk.js.LICENSE.txt",
     "static/media/arrow-left-solid.b27e2493.svg": "/static/media/arrow-left-solid.b27e2493.svg",
     "static/media/arrow-right-solid.2db90993.svg": "/static/media/arrow-right-solid.2db90993.svg",
@@ -22,12 +22,13 @@
     "static/media/linkedin-brands.f4041044.svg": "/static/media/linkedin-brands.f4041044.svg",
     "static/media/slack-brands.65dbe683.svg": "/static/media/slack-brands.65dbe683.svg",
     "static/media/twitter-brands.87682341.svg": "/static/media/twitter-brands.87682341.svg",
-    "static/media/user-solid.93b18c33.svg": "/static/media/user-solid.93b18c33.svg"
+    "static/media/user-solid.93b18c33.svg": "/static/media/user-solid.93b18c33.svg",
+    "static/media/users-solid.90efc33f.svg": "/static/media/users-solid.90efc33f.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.6e76dcdf.js",
     "static/js/2.16d26a36.chunk.js",
-    "static/css/main.279b28d1.chunk.css",
-    "static/js/main.1865ae45.chunk.js"
+    "static/css/main.69ddd59f.chunk.css",
+    "static/js/main.e7ddcf06.chunk.js"
   ]
 }
