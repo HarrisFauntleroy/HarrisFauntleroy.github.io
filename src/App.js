@@ -9,7 +9,8 @@ function App() {
 
     <Navbar>
       <NavItem icon="HF"/>
-      <NavBurger/>
+      <NavBurger>
+      </NavBurger>
     </Navbar>
   );
 }

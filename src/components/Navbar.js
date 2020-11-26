@@ -47,7 +47,7 @@ export function NavBurger() {
                 className={`hamburger ${collapsed ? "" : "opened"}`}
             />}>
             <DropdownMenu></DropdownMenu>
-          </NavItem>
+        </NavItem>
     );
 }
 
@@ -71,7 +71,7 @@ export function DropdownMenu() {
             <a href="#" className="menu-item" onClick={() => props.goToMenu && setActiveMenu(props.goToMenu)}>
                 <span className="icon-button">{props.leftIcon}</span>
                 {props.children}
-                <span className="icon-right">{props.rightIcon}</span>
+                {/* <span className="icon-right">{props.rightIcon}</span> */}
             </a>
         )
     }
@@ -115,7 +115,7 @@ export function DropdownMenu() {
                 onEnter={calcHeight}>
                 <div className="menu">
                     <DropdownItem goToMenu="main" leftIcon={<ArrowLeftIcon />}>
-                        <h2></h2>
+                        <h2>Links</h2>
                     </DropdownItem>
                     <DropdownItem leftIcon={<GithubIcon />}>Github</DropdownItem>
                     <DropdownItem leftIcon={<LinkedInIcon />}>LinkedIn</DropdownItem>
@@ -134,12 +134,12 @@ export function DropdownMenu() {
                 onEnter={calcHeight}>
                 <div className="menu">
                     <DropdownItem goToMenu="main" leftIcon={<ArrowLeftIcon />}>
-                        <h2>Animals</h2>
+                        <h2>Projects</h2>
                     </DropdownItem>
-                    <DropdownItem leftIcon="🦘">Kangaroo</DropdownItem>
-                    <DropdownItem leftIcon="🐸">Frog</DropdownItem>
-                    <DropdownItem leftIcon="🦋">Horse?</DropdownItem>
-                    <DropdownItem leftIcon="🦔">Hedgehog</DropdownItem>
+                    <DropdownItem leftIcon="🦸">Marvel React App</DropdownItem>
+                    <DropdownItem leftIcon="🌿">No More Plants!</DropdownItem>
+                    <DropdownItem leftIcon="📖">Library Admin Panel</DropdownItem>
+                    <DropdownItem leftIcon="🚧">Hermes (In-dev)</DropdownItem>
                 </div>
             </CSSTransition>
         </div>
