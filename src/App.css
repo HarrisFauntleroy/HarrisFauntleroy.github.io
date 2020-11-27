@@ -1,9 +1,13 @@
 :root {
-  --bg: #353535;
-  --bg-accent: #48444a4d;
-  --text-color: white;
+  --bg: #000000;
+  --bg1: #242424;
+  --bg2: #4d4d4d;
+  --bg3: #757575;
+
+  --text-color: #ffffff;
+
   --nav-size: 60px;
-  --border: 1px solid #474a4d;
+  --border: 1px solid #757575;
   --border-radius: 8px;
   --speed: 500ms;
 }
@@ -18,6 +22,32 @@ body {
   scroll-behavior: smooth;
   padding: 0;
   margin: 0;
+  background: url(https://images.unsplash.com/photo-1597773150796-e5c14ebecbf5?ixlib=rb-1.2.1&auto=format&fit=crop&w=2100&q=80);
+  color: var(--text-color);
+}
+
+.content-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.container {
+  flex: 1;
+  padding: 0 1rem;
+  margin: 1em;
+  background-color: var(--bg1);
+  opacity: 0.9;
+  border: var(--border);
+  border-radius: var(--border-radius);
+}
+
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top: var(--border);
+  background-color: var(--bg1);
 }
 
 ul {
@@ -33,7 +63,7 @@ a {
 
 .navbar {
   height: var(--nav-size);
-  background-color: var(--bg);
+  background-color: var(--bg1);
   padding: 0 1rem;
   border-bottom: var(--border);
 }
@@ -56,7 +86,7 @@ a {
   --button-size: calc(var(--nav-size) * 0.5);
   width: var(--button-size);
   height: var(--button-size);
-  background-color: #484a4d;
+  background-color: var(--bg2);
   border-radius: 50%;
   padding: 5px;
   margin: 2px;
@@ -81,14 +111,15 @@ a {
 
 .dropdown {
   position: absolute;
-  top: 61px;
+  top: 60px;
   width: 300px;
   transform: translateX(-38%);
-  background-color: var(--bg);
+  background-color: var(--bg1);
   border: var(--border);
   padding: 1rem;
   overflow: hidden;
   transition: height var(--speed) ease;
+  z-index: 1;
 }
 
 .menu-item {
